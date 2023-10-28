@@ -18,17 +18,17 @@ const Styles = StyleSheet.create(
             alignItems: 'center',
         },
         buttonLogin:{
-            width: '90%',
-            height: 50,
-            backgroundColor: '#ABC4AA',
+            width: '95%',
+            height: 53,
+            backgroundColor: '',
             borderRadius: 20,
             padding: 10,
             alignItems:'center',
             justifyContent: 'center'
         },
         buttonRegister: {
-            width: '90%',
-            height: 50,
+            width: '95%',
+            height: 53,
             backgroundColor: 'rgba(255, 255, 255, 0.8)',
             borderRadius: 20,
             padding: 10,
@@ -39,7 +39,7 @@ const Styles = StyleSheet.create(
         },
         textButton: {
             fontFamily: 'Montserrat_700Bold',
-            fontSize: 16
+            fontSize: 17
         }
     }
 )

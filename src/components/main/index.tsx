@@ -16,6 +16,7 @@ export default function Main(){
                 <TouchableOpacity style={Styles.buttonRegister}>
                     <Text style={Styles.textButton}>Register</Text>
                 </TouchableOpacity>
+                <Text>yfgvkjgkbl</Text>
             </View>
 
         </ImageBackground>

@@ -4,7 +4,10 @@ import Welcome from "../pages/Welcome";
 import SignIn from "../pages/SignIn";
 import Register from "../pages/Register";
 
+// stack e uma dependencia de navegacao que e necessario instalar na sua maquina
 const Stack = createNativeStackNavigator();
+
+// rotas para nevegacao entre paginas
 
 export default function Routes() {
   return (

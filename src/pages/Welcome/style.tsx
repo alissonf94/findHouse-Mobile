@@ -28,7 +28,7 @@ const Styles = StyleSheet.create({
   buttonRegister: {
     width: "95%",
     height: 53,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
     borderRadius: 20,
     padding: 10,
     alignItems: "center",
@@ -39,6 +39,7 @@ const Styles = StyleSheet.create({
   textButton: {
     fontFamily: "Montserrat_700Bold",
     fontSize: 17,
+    color: "FFFFFF",
   },
 });
 

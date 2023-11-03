@@ -22,7 +22,7 @@ export default function App() {
         <TextInput placeholder="Your email..." style={Styles.input} />
         <Text style={Styles.label}>Password</Text>
         <TextInput placeholder="Your password" style={Styles.input} />
-        <TouchableOpacity style={Styles.button}>
+        <TouchableOpacity style={Styles.button}  onPress={ () => navigation.navigate('Houses' as never)}>
           <Text style={Styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
 

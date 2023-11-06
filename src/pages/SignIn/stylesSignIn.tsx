@@ -66,6 +66,12 @@ const Styles = StyleSheet.create({
   registerText: {
     color: "#800089",
   },
+  icon: {
+    marginTop: "5%",
+    width: "95%",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
 });
 
 export default Styles;

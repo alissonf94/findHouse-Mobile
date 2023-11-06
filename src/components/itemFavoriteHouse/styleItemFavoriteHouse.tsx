@@ -20,6 +20,7 @@ const Styles = StyleSheet.create({
   containerText: {
     flex: 1,
     marginLeft: 16,
+    gap:2,
   },
   textName: {
     fontFamily: "Montserrat_100Thin",

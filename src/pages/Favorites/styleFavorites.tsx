@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop:30,
+    paddingTop: 30,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
@@ -20,15 +20,20 @@ const Styles = StyleSheet.create({
     width: "93%",
     marginTop: 15,
   },
-  text:{
-    fontSize:20
+  text: {
+    fontSize: 20,
+    fontFamily: "Montserrat_700Bold",
+    color: "#FFF",
   },
-  icon:{
-    marginTop:"5%",
-    width:"95%",
-    alignItems:"center",
-    justifyContent:"flex-start"
-  }
+  textclear: {
+    color: "#800089",
+  },
+  icon: {
+    marginTop: "5%",
+    width: "95%",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
 });
 
 export default Styles;

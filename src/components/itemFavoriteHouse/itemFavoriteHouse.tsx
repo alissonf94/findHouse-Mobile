@@ -12,8 +12,8 @@ export default function App({ name, image, price }: FavoriteHouse) {
         <Text style={Styles.textName}>{name}</Text>
         <Text style={Styles.textPrice}>R$ {price}</Text>
         <View style={Styles.options}>
-          <TouchableOpacity>
-            <Text>CORRETOR</Text>
+          <TouchableOpacity style={Styles.button}>
+            <Text style={Styles.buttonText}>CORRETOR</Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Icon name="delete" size={18}></Icon>

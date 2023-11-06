@@ -11,8 +11,9 @@ export default function App (){
    }
     return (
         <View  style = {Styles.container}>
-            <TextInput style={Styles.search}> <Icon name="search" size={20} color='675D50'/></TextInput>
+            <TextInput style={Styles.search}> <Icon name="search" size={20} color='#675D50'/></TextInput>
             <FlatList
+                style = {Styles.flat}
                 renderItem={renderItem}
                 data={HouseList}
                 keyExtractor={(item) => item.name}

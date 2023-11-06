@@ -15,6 +15,9 @@ const Styles = StyleSheet.create({
         marginBottom: "3%",
         borderRadius: 30,
         padding: 10,
+    },
+    flat:{
+        width: "100%"
     }
 })
 

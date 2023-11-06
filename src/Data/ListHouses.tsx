@@ -16,31 +16,31 @@ export const HouseList: House[] = [
         price: 1200000
     },
     {
-        name: "Casa no Serraville",
+        name: "Casa no Atmosfera",
         image: imageHouse,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum elit.",
         price: 1200000
     },
     {
-        name: "Casa no Serraville",
+        name: "Casa no Alphavile",
         image: imageHouse,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum elit.",
         price: 1200000
     },
     {
-        name: "Casa no Serraville",
+        name: "Casa no Terras Alphavile",
         image: imageHouse,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum elit.",
         price: 1200000
     },
     {
-        name: "Casa no Serraville",
+        name: "Casa no Park Ville",
         image: imageHouse,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum elit.",
         price: 1200000
     },
     {
-        name: "Casa no Serraville",
+        name: "Casa no Montville",
         image: imageHouse,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum elit.",
         price: 120000

@@ -39,7 +39,7 @@ const Styles = StyleSheet.create({
   textButton: {
     fontFamily: "Montserrat_700Bold",
     fontSize: 17,
-    color: "FFFFFF",
+    color: "#FFFFFF",
   },
 });
 

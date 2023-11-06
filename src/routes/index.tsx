@@ -29,8 +29,10 @@ export default function Routes() {
         component={Register}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Houses" component={Houses}
-      options={{headerShown: false}}/>
+      <Stack.Screen
+        name="Houses"
+        component={Houses}
+        options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

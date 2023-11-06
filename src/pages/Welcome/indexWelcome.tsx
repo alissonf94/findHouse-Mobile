@@ -5,7 +5,7 @@ import {
   ImageBackground,
   Text,
 } from "react-native";
-import Styles from "./style";
+import Styles from "./styleWelcome";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Main() {

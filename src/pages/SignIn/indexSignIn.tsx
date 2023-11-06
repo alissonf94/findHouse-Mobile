@@ -7,37 +7,33 @@ import {
   View,
   ViewBase,
 } from "react-native";
-import Styles from "./styles";
+import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
   const navigation = useNavigation();
-
   return (
     <View style={Styles.container}>
       <Text style={Styles.containerHeader}>
-        <Text style={Styles.message}>Create Your Account!</Text>
+        <Text style={Styles.message}>Welcome Back!</Text>
       </Text>
       <ScrollView style={Styles.containerform}>
-        <Text style={Styles.label}>Complete name</Text>
-        <TextInput placeholder="Your name" style={Styles.input} />
-        <Text style={Styles.label}>CPF</Text>
-        <TextInput placeholder="Your cpf" style={Styles.input} />
         <Text style={Styles.label}>Email</Text>
         <TextInput placeholder="Your email..." style={Styles.input} />
         <Text style={Styles.label}>Password</Text>
         <TextInput placeholder="Your password" style={Styles.input} />
-        <Text style={Styles.label}>Confirm password</Text>
-        <TextInput placeholder="Your password" style={Styles.input} />
-        <TouchableOpacity style={Styles.button}>
-          <Text style={Styles.buttonText}>Sign Up</Text>
+        <TouchableOpacity
+          style={Styles.button}
+          onPress={() => navigation.navigate("Houses" as never)}
+        >
+          <Text style={Styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={Styles.buttonRegister}
-          onPress={() => navigation.navigate("SignIn" as never)}
+          onPress={() => navigation.navigate("Register" as never)}
         >
-          <Text style={Styles.registerText}>Do you have account? Sign In</Text>
+          <Text style={Styles.registerText}>Don't have account? Sign Up</Text>
         </TouchableOpacity>
       </ScrollView>
       <StatusBar style="auto" />

@@ -21,7 +21,12 @@ export default function App() {
         size={25}
         onPress={() => navigation.navigate("Favorites" as never)}
       />
-      <IconUser name="user" color={"#675D50"} size={25} />
+      <IconUser 
+      name="user" 
+      color={"#675D50"} 
+      size={25}
+      onPress={() => navigation.navigate("Profile" as never)} 
+      />
     </View>
   );
 }

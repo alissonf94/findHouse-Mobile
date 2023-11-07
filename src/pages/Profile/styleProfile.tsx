@@ -26,6 +26,7 @@ const Styles = StyleSheet.create({
   },
   containerform: {
     flexGrow: 1,
+    width: "100%"
   },
   label: {
     fontSize: 20,

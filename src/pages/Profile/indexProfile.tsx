@@ -20,7 +20,7 @@ export default function EditProfile() {
         name="chevron-back-outline"
         size={30}
         color="#fff"
-        onPress={() => navigation.navigate("Welcome" as never)}
+        onPress={() => navigation.navigate("Houses" as never)}
       />
       <Image
         source={require("../../images/personIconExample.png")} // You should replace this with the actual source of the profile photo

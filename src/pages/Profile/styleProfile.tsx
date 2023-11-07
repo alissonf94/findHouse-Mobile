@@ -5,6 +5,7 @@ const Styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#9EA2A2",
     padding: 20,
+    justifyContent: "space-between"
   },
   background: {
     flex: 1,
@@ -70,7 +71,7 @@ const Styles = StyleSheet.create({
     height: 150,
     borderRadius: 75, // Makes the image a circle
     marginBottom: 20,
-    justifyContent:"flex-end"
+    // alignSelf: "flex-end",
   },
   icon:{
     marginTop:"5%",

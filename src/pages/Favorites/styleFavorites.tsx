@@ -21,7 +21,12 @@ const Styles = StyleSheet.create({
     marginTop: 15,
   },
   text:{
-    fontSize:20
+    fontSize:20,
+    fontFamily: "Montserrat_700Bold",
+    color:"#fff"
+  },
+  clear:{
+    color:"#800089"
   },
   icon:{
     marginTop:"5%",

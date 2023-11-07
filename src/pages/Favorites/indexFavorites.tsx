@@ -14,11 +14,16 @@ export default function App() {
   const navigation = useNavigation();
   return (
     <View style={Styles.container}>
-      <Icon style={Styles.icon} name="chevron-back-outline" size={30} color="#fff"   
-      onPress={() => navigation.navigate("Houses" as never)}/>
+      <Icon
+        style={Styles.icon}
+        name="chevron-back-outline"
+        size={30}
+        color="#fff"
+        onPress={() => navigation.navigate("Houses" as never)}
+      />
       <View style={Styles.containerText}>
         <Text style={Styles.text}>Favorites</Text>
-        <Text style={Styles.text}>Clear all</Text>
+        <Text style={Styles.clear}>Clear all</Text>
       </View>
       <FlatList
         style={Styles.flat}

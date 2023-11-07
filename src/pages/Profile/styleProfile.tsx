@@ -64,15 +64,14 @@ const Styles = StyleSheet.create({
     alignItems: "center",
   },
   registerText: {
-    color: "blue",
-    fontSize: 18,
+    color: "#800089",
   },
   profileImage: {
     width: 150,
     height: 150,
     borderRadius: 75, // Makes the image a circle
     marginBottom: 20,
-    // alignSelf: "flex-end",
+    alignSelf: "flex-end",
   },
   icon:{
     marginTop:"5%",

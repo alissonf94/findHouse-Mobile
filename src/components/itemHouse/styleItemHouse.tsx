@@ -40,7 +40,4 @@ const Styles = StyleSheet.create({
         color: '#404F4C'
     }
 
-    
-})
-
-export default Styles
+export default Styles;

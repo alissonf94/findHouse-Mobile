@@ -23,5 +23,5 @@ export default function App({name, image, description,price}:House){
             </View>
         </TouchableOpacity>
     </View>
-    )
+  );
 }

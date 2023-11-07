@@ -7,13 +7,22 @@ import {
   View,
   ViewBase,
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
+
 
 export default function App() {
   const navigation = useNavigation();
   return (
     <View style={Styles.container}>
+      <Icon
+        style={Styles.icon}
+        name="chevron-back-outline"
+        size={30}
+        color="#fff"
+        onPress={() => navigation.navigate("Welcome" as never)}
+      />
       <Text style={Styles.containerHeader}>
         <Text style={Styles.message}>Welcome Back!</Text>
       </Text>

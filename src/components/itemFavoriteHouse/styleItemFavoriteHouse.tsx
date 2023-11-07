@@ -20,6 +20,7 @@ const Styles = StyleSheet.create({
   containerText: {
     flex: 1,
     marginLeft: 16,
+    gap: 2,
   },
   textName: {
     fontFamily: "Montserrat_100Thin",
@@ -43,6 +44,18 @@ const Styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  button: {
+    borderRadius: 30,
+    backgroundColor: "#404F4C",
+    textAlign: "center",
+    width: "70%",
+  },
+  buttonText: {
+    fontFamily: "Montserrat_700Bold",
+    justifyContent: "center",
+    marginLeft: 6,
+    color: "#FFFF",
   },
 });
 

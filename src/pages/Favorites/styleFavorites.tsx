@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop:30,
+    paddingTop: 30,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
@@ -27,8 +27,7 @@ const Styles = StyleSheet.create({
   },
   clear:{
     color:"#800089"
-  },
-  icon:{
+  },  icon:{
     marginTop:"5%",
     width:"95%",
     alignItems:"center",

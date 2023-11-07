@@ -6,7 +6,6 @@ import Styles from "./styleFavorites";
 import { View, Text, FlatList, ListRenderItemInfo } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-
 export default function App() {
   function renderItem({ item }: ListRenderItemInfo<FavoriteHouse>) {
     return <ItemHouse {...item} />;

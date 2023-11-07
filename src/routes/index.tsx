@@ -5,6 +5,7 @@ import SignIn from "../pages/SignIn/indexSignIn";
 import Register from "../pages/Register/indexRegister";
 import Houses from "../pages/Houses/indexHouses";
 import Favorites from "../pages/Favorites/indexFavorites";
+import House from '../pages/House/indexHouse'
 // stack e uma dependencia de navegacao que e necessario instalar na sua maquina
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,10 @@ export default function Routes() {
         component={Favorites}
         options={{ headerShown: false }}
       />
+      <Stack.Screen name="House"
+      component={House}
+      options={{ headerShown: false }}
+       />
     </Stack.Navigator>
   );
 }

@@ -2,7 +2,7 @@ import { FavoriteHouse, FavoriteHouses } from "../../Data/FavoriteHouses";
 import ItemHouse from "../../components/itemFavoriteHouse/itemFavoriteHouse";
 import Menu from "../../components/menu/menu";
 import Styles from "./styleFavorites";
-import { View, Text, FlatList, ListRenderItemInfo } from "react-native";
+import { View, Text, FlatList, ListRenderItemInfo} from "react-native";
 
 export default function App() {
   function renderItem({ item }: ListRenderItemInfo<FavoriteHouse>) {

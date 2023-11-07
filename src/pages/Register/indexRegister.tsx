@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import Icon from "react-native-vector-icons/Ionicons";
 import {
   ScrollView,
   Text,

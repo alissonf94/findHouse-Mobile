@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons'; // Make sure to import Ionicons from the correct package
 import Styles from "./styleProfile";
 import { useNavigation } from "@react-navigation/native";
 
@@ -43,12 +44,19 @@ export default function EditProfile() {
         <TouchableOpacity style={Styles.button}>
           <Text style={Styles.buttonText}>Save Changes</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={Styles.buttonRegister}
-          onPress={() => navigation.navigate("Houses" as never)}
+        <TouchableOpacity 
+          style={Styles.buttonLogout}
+          onPress={() => navigation.navigate("Welcome" as never)}
         >
-          <Text style={Styles.registerText}>Back to Home</Text>
+          <View style={Styles.logoutContent}>
+            <Ionicons
+              name="exit" // Use "exit" as the icon name for log out
+              size={30}
+              color="#fff"
+              style={Styles.logoutIcon}
+            />
+            <Text style={Styles.buttonText}>LogOut</Text>
+          </View>
         </TouchableOpacity>
       </ScrollView>
       <StatusBar/>

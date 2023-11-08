@@ -59,17 +59,21 @@ const Styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
-  buttonRegister: {
-    marginTop: 20,
+  buttonLogout: {
+    backgroundColor: "#c94c4c",
+    width: "100%",
+    justifyContent: "center",
+    height: 60,
+    paddingVertical: 8,
     alignItems: "center",
-  },
-  registerText: {
-    color: "#800089",
+    marginTop: 20,
+    borderRadius: 20,
+    flexDirection: "row",
   },
   profileImage: {
     width: 150,
     height: 150,
-    borderRadius: 75, // Makes the image a circle
+    borderRadius: 75,
     marginBottom: 20,
     alignSelf: "flex-end",
   },
@@ -78,7 +82,14 @@ const Styles = StyleSheet.create({
     width:"95%",
     alignItems:"center",
     justifyContent:"flex-start"
-  }
+  },
+  logoutContent: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoutIcon: {
+    marginRight: 10,
+  },
 });
 
 export default Styles;

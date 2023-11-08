@@ -4,11 +4,11 @@ const Styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#9EA2A2",
-        padding: 40,
+        padding: 15,
         fontFamily: "Montserrat_700Bold",
       },
       containerHeader: {
-        marginTop: "15%",
+        marginTop: "5%",
         marginBottom: "8%",
         paddingStart: "5%",
         fontFamily: "Montserrat_700Bold",
@@ -40,19 +40,21 @@ const Styles = StyleSheet.create({
         padding: 10,
       },
       icon: {
-        marginTop: "5%",
+        marginTop: "10%",
         width: "95%",
         alignItems: "center",
         justifyContent: "flex-start"
       },
       button: {
         backgroundColor: "#ABC4AA",
-        width: "100%",
+        width: "70%",
+        alignSelf:"center",
         justifyContent: "center",
         height: 40,
         paddingVertical: 8,
         alignItems: "center",
         marginTop: 50,
+        marginBottom: 30,
         borderRadius: 20,
       },
       buttonText: {

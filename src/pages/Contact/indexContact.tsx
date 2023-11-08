@@ -15,12 +15,12 @@ export default function Contact() {
             alert('Digite o Nome');
             return;
         }
-        else if (!textInputEmail.trim()) {
-            alert('Digite o E-mail');
-            return;
-        }
         else if (!textInputPhone.trim()) {
             alert('Digite o Celular');
+            return;
+        }
+        else if (!textInputEmail.trim()) {
+            alert('Digite o E-mail');
             return;
         }
         else {

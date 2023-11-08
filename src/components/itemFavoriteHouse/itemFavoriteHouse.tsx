@@ -13,7 +13,7 @@ export default function App({ name, image, price }: FavoriteHouse) {
         <Text style={Styles.textPrice}>R$ {price}</Text>
         <View style={Styles.options}>
           <TouchableOpacity style={Styles.button}>
-            <Text style={Styles.buttonText}>CORRETOR</Text>
+            <Text style={Styles.buttonText}> CONTINUE </Text>
           </TouchableOpacity>
           <TouchableOpacity>
             <Icon name="delete" size={18}></Icon>

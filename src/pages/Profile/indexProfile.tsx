@@ -23,6 +23,15 @@ export default function EditProfile() {
         color="#fff"
         onPress={() => navigation.navigate("Houses" as never)}
       />
+      <View style={Styles.logoutContent}>
+        <Ionicons
+          name="exit" // Use "exit" as the icon name for log out
+          size={30}
+          color="#fff"
+          style={Styles.logoutIcon}
+          onPress={() => navigation.navigate("Welcome" as never)}
+        />
+      </View>
       <Image
         source={require("../../images/personIconExample.png")} // You should replace this with the actual source of the profile photo
         style={Styles.profileImage}
@@ -43,20 +52,6 @@ export default function EditProfile() {
         <TextInput placeholder="Confirm new password" style={Styles.input} />
         <TouchableOpacity style={Styles.button}>
           <Text style={Styles.buttonText}>Save Changes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={Styles.buttonLogout}
-          onPress={() => navigation.navigate("Welcome" as never)}
-        >
-          <View style={Styles.logoutContent}>
-            <Ionicons
-              name="exit" // Use "exit" as the icon name for log out
-              size={30}
-              color="#fff"
-              style={Styles.logoutIcon}
-            />
-            <Text style={Styles.buttonText}>LogOut</Text>
-          </View>
         </TouchableOpacity>
       </ScrollView>
       <StatusBar/>

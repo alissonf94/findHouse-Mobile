@@ -5,7 +5,7 @@ const Styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#9EA2A2",
     padding: 20,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   background: {
     flex: 1,
@@ -26,7 +26,7 @@ const Styles = StyleSheet.create({
   },
   containerform: {
     flexGrow: 1,
-    width: "100%"
+    width: "100%",
   },
   label: {
     fontSize: 20,
@@ -71,24 +71,25 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
   },
   profileImage: {
-    width: 150,
-    height: 150,
+    width: 120,
+    height: 120,
     borderRadius: 75,
     marginBottom: 20,
-    alignSelf: "flex-end",
+    marginLeft: 25,
   },
-  icon:{
-    marginTop:"5%",
-    width:"95%",
-    alignItems:"center",
-    justifyContent:"flex-start"
+  icon: {
+    marginTop: "5%",
+    width: "95%",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   logoutContent: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "flex-end", // Align the items to the right
   },
   logoutIcon: {
-    marginRight: 10,
+    marginTop:-30,
   },
 });
 

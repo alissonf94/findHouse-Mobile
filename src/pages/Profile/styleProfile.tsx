@@ -91,6 +91,16 @@ const Styles = StyleSheet.create({
   logoutIcon: {
     marginTop:-30,
   },
+  iconContainer: {
+    position: "absolute",
+    right: 18,
+    top: "62.8%",
+  },
+  iconContainerconfirm: {
+    position: "absolute",
+    right: 18,
+    top: "79.7%",
+  },
 });
 
 export default Styles;

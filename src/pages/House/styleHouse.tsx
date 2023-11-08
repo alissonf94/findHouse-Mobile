@@ -19,6 +19,7 @@ const Styles = StyleSheet.create({
     icon: {
         marginRight: 20,
         marginTop: 40
+        
     },
     title: {
         fontFamily: 'Montserrat_700Bold',

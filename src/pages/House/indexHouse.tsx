@@ -1,9 +1,10 @@
 import { Image, Text, TouchableOpacity, View, Dimensions, ImageBackground } from 'react-native'
 import Styles from './styleHouse'
 import house1 from '../../images/house1.png'
-import IconFavorite from "react-native-vector-icons/FontAwesome";
+import IconFavorite from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
 const house =
 {
     name: "Casa no Serraville",
@@ -15,6 +16,16 @@ const house =
 
 export default function App() {
     const navigation = useNavigation();
+
+    const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        /* if(isPasswordVisible){
+            
+        } */
+        setPasswordVisible(!isPasswordVisible);
+    };
+    
     return (
 
         <View style={Styles.container}>
@@ -32,7 +43,8 @@ export default function App() {
                         onPress={() => navigation.navigate("Houses" as never)}
                     />
                     <IconFavorite
-                        name="heart-o"
+                        onPress={togglePasswordVisibility}
+                        name={isPasswordVisible ? 'heart-sharp' : 'heart-outline'}
                         color={'#ffffff'}
                         size={30}
                         style={Styles.icon}
@@ -50,7 +62,7 @@ export default function App() {
 
             <View style={Styles.sectionButton}>
                 <TouchableOpacity style={Styles.button}>
-                    <Text style={Styles.textButton}>More informations</Text>
+                    <Text style={Styles.textButton} onPress={() => navigation.navigate("Contact" as never)}>More informations</Text>
                 </TouchableOpacity>
             </View>
         </View>

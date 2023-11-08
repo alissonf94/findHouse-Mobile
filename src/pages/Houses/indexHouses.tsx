@@ -1,5 +1,5 @@
 import Styles from "./styleHouses";
-import { FlatList, ListRenderItemInfo, TextInput, View } from "react-native";
+import { FlatList, ListRenderItemInfo, TextInput, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/EvilIcons";
 import Menu from "../../components/menu/menu";
 import { House, HouseList } from "../../Data/ListHouses";
@@ -11,10 +11,11 @@ export default function App() {
   }
   return (
     <View style={Styles.container}>
-      <TextInput style={Styles.search}>
-        {" "}
-        <Icon name="search" size={20} color="#675D50" />
-      </TextInput>
+      <View style={{ display: "flex", flexDirection: "row", width:"100%" }}>
+        <TextInput style={Styles.search} />
+        <Icon style={Styles.icon} name="search" size={35} color="#675D50" />
+      </View>
+
       <FlatList
         style={Styles.flat}
         renderItem={renderItem}

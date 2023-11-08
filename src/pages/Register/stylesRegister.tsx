@@ -15,7 +15,7 @@ const Styles = StyleSheet.create({
   },
   message: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: "normal",
     color: "#FFFFFF",
     fontFamily: "Montserrat_700Bold",
   },

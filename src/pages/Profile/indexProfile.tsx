@@ -33,7 +33,7 @@ export default function EditProfile() {
         />
       </View>
       <Image
-        source={require("../../images/personIconExample.png")} // You should replace this with the actual source of the profile photo
+        source={require("../../images/personIconExample.png")}
         style={Styles.profileImage}
       />
       <Text style={Styles.containerHeader}>

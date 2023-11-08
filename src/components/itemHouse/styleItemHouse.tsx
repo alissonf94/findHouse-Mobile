@@ -39,6 +39,5 @@ const Styles = StyleSheet.create({
         marginTop: 3,
         color: '#404F4C'
     }
-    });
-
+});
 export default Styles;

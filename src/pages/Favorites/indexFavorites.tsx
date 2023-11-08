@@ -3,7 +3,7 @@ import { FavoriteHouse, FavoriteHouses } from "../../Data/FavoriteHouses";
 import ItemHouse from "../../components/itemFavoriteHouse/itemFavoriteHouse";
 import Menu from "../../components/menu/menu";
 import Styles from "./styleFavorites";
-import { View, Text, FlatList, ListRenderItemInfo} from "react-native";
+import { View, Text, FlatList, ListRenderItemInfo } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     <View style={Styles.container}>
       <Icon
         style={Styles.icon}
-        name="chevron-back-outline"
+        name="arrow-back-outline"
         size={30}
         color="#fff"
         onPress={() => navigation.navigate("Houses" as never)}

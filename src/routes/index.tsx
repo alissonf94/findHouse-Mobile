@@ -6,6 +6,7 @@ import Register from "../pages/Register/indexRegister";
 import Houses from "../pages/Houses/indexHouses";
 import Favorites from "../pages/Favorites/indexFavorites";
 import House from '../pages/House/indexHouse'
+import Contact from "../pages/Contact/indexContact";
 // stack e uma dependencia de navegacao que e necessario instalar na sua maquina
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +24,7 @@ export default function Routes() {
       <Stack.Screen
         name="SignIn"
         component={SignIn}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, }}
       />
 
       <Stack.Screen
@@ -43,6 +44,10 @@ export default function Routes() {
       />
       <Stack.Screen name="House"
       component={House}
+      options={{ headerShown: false }}
+       />
+      <Stack.Screen name="Contact"
+      component={Contact}
       options={{ headerShown: false }}
        />
     </Stack.Navigator>

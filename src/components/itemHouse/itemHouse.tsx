@@ -8,7 +8,7 @@ export default function App({name, image, description,price}:House){
     const navigation = useNavigation()
     return(
     <View  >
-        <TouchableOpacity style={Styles.container} onPress={ ()=> navigation.navigate('House' as never)}>
+        <TouchableOpacity activeOpacity={0} style={Styles.container} onPress={ ()=> navigation.navigate('House' as never)}>
             <Image style= {Styles.image} source={image}/>
             <View style={Styles.containerText}>
                 <Text style={Styles.textName}>

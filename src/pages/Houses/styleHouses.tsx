@@ -7,17 +7,25 @@ const Styles = StyleSheet.create({
         backgroundColor: "#ABC4AA"
     },
     search: {
-        width: "90%",
+        width: "85%",
         height: 50,
         borderColor: "#FFFFFF",
         borderWidth: 1,
         marginTop: "15%",
+        marginLeft: "3%",
         marginBottom: "3%",
         borderRadius: 30,
         padding: 10,
+        fontSize:16
+    },
+    icon:{
+        marginLeft:3,
+        top:"18%"
     },
     flat:{
-        width: "100%"
+        marginTop: 20,
+        width: "100%",
+        
     }
 })
 

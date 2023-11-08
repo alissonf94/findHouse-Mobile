@@ -66,12 +66,18 @@ const Styles = StyleSheet.create({
   registerText: {
     color: "#800089",
   },
-  icon:{
-    marginTop:"5%",
-    width:"95%",
-    alignItems:"center",
-    justifyContent:"flex-start"
-  }
+  icon: {
+    marginTop: "5%",
+    width: "95%",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  iconContainer: {
+    position: "absolute",
+    right: 18,
+    top: "54.5%",
+    size: 24,
+  },
 });
 
 export default Styles;

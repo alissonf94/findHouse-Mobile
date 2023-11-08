@@ -10,10 +10,17 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
-
+import IconVisibility from "react-native-vector-icons/FontAwesome";
+import { useState } from "react";
 
 export default function App() {
   const navigation = useNavigation();
+  const [textInputPassword, setTextInputPassword] = useState("");
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!isPasswordVisible);
+  };
   return (
     <View style={Styles.container}>
       <Icon
@@ -30,7 +37,23 @@ export default function App() {
         <Text style={Styles.label}>Email</Text>
         <TextInput placeholder="Your email..." style={Styles.input} />
         <Text style={Styles.label}>Password</Text>
-        <TextInput placeholder="Your password" style={Styles.input} />
+        <TextInput
+          placeholder="Your password"
+          style={Styles.input}
+          secureTextEntry={!isPasswordVisible}
+          value={textInputPassword}
+          onChangeText={(value) => setTextInputPassword(value)}
+        />
+        <TouchableOpacity
+          style={Styles.iconContainer}
+          onPress={togglePasswordVisibility}
+        >
+          <IconVisibility
+            name={isPasswordVisible ? "eye" : "eye-slash"}
+            size={20}
+            color="black"
+          />
+        </TouchableOpacity>
         <TouchableOpacity
           style={Styles.button}
           onPress={() => navigation.navigate("Houses" as never)}

@@ -2,6 +2,8 @@ import { Image, Text, TouchableOpacity, View, Dimensions, ImageBackground } from
 import Styles from './styleHouse'
 import house1 from '../../images/house1.png'
 import IconFavorite from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/Ionicons";
+import { useNavigation } from '@react-navigation/native';
 const house =
 {
     name: "Casa no Serraville",
@@ -12,6 +14,7 @@ const house =
 
 
 export default function App() {
+    const navigation = useNavigation();
     return (
 
         <View style={Styles.container}>
@@ -21,6 +24,13 @@ export default function App() {
                     source={house1}
                     resizeMode="stretch"
                 >
+                    <Icon
+                        style={Styles.icon}
+                        name="arrow-back-outline"
+                        size={30}
+                        color="#fff"
+                        onPress={() => navigation.navigate("Houses" as never)}
+                    />
                     <IconFavorite
                         name="heart-o"
                         color={'#ffffff'}

@@ -18,7 +18,7 @@ export default function App() {
     <View style={Styles.container}>
       <Icon
         style={Styles.icon}
-        name="chevron-back-outline"
+        name="arrow-back-outline"
         size={30}
         color="#fff"
         onPress={() => navigation.navigate("Welcome" as never)}

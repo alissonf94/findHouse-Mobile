@@ -1,16 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  ViewBase,
-} from "react-native";
+
 import Icon from "react-native-vector-icons/Ionicons";
 import Styles from "./stylesRegister";
 import { useNavigation } from "@react-navigation/native";
-
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React from "react";
 export default function App() {
   const navigation = useNavigation();
 
@@ -18,7 +12,7 @@ export default function App() {
     <View style={Styles.container}>
       <Icon
         style={Styles.icon}
-        name="chevron-back-outline"
+        name="arrow-back-outline"
         size={30}
         color="#fff"
         onPress={() => navigation.navigate("Welcome" as never)}
@@ -37,7 +31,8 @@ export default function App() {
         <TextInput placeholder="Your password" style={Styles.input} />
         <Text style={Styles.label}>Confirm password</Text>
         <TextInput placeholder="Your password" style={Styles.input} />
-        <TouchableOpacity style={Styles.button}>
+        <TouchableOpacity style={Styles.button}
+        onPress={() => navigation.navigate("Houses" as never)}>
           <Text style={Styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 

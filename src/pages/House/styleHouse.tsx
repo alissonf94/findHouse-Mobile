@@ -12,7 +12,8 @@ const Styles = StyleSheet.create({
     },
     background:{
         flex: 1,
-        alignItems: 'flex-end',
+        flexDirection: 'row',
+        justifyContent:'space-between',
         padding: 10,
     },
     icon: {

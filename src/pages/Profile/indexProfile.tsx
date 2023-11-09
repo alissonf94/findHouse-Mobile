@@ -112,20 +112,10 @@ export default function EditProfile() {
         <TextInput
           placeholder="Your password"
           style={Styles.input}
-          secureTextEntry={!isPasswordVisible}
+          secureTextEntry={true}
           value={textInputConfirmPassword}
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
-        <TouchableOpacity
-          style={Styles.iconContainerconfirm}
-          onPress={togglePasswordVisibility}
-        >
-          <IconVisibility
-            name={isPasswordVisible ? "eye" : "eye-slash"}
-            size={20}
-            color="black"
-          />
-        </TouchableOpacity>
 
         <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
           <Text style={Styles.buttonText}>Save Changes</Text>

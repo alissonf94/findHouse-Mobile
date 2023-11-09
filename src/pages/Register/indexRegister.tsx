@@ -42,7 +42,11 @@ export default function App() {
     } else if (!textInputConfirmPassword.trim()) {
       alert("Confirme a sua senha");
       return;
-    } else {
+    } else if (textInputConfirmPassword !== textInputPassword) {
+      alert("Senhas diferentes")
+      return;
+    }
+    else {
       navigation.navigate("Houses" as never);
     }
   };
@@ -102,20 +106,11 @@ export default function App() {
         <TextInput
           placeholder="Your password"
           style={Styles.input}
-          secureTextEntry={!isPasswordVisible}
+          secureTextEntry={true}
           value={textInputConfirmPassword}
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
-        <TouchableOpacity
-          style={Styles.iconContainerconfirm}
-          onPress={togglePasswordVisibility}
-        >
-          <IconVisibility
-            name={isPasswordVisible ? "eye" : "eye-slash"}
-            size={20}
-            color="black"
-          />
-        </TouchableOpacity>
+
         <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
           <Text style={Styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>

@@ -9,11 +9,8 @@ const screenWidth = Dimensions.get('window').width;
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useState } from 'react';
 
-
 export default function App() {
     const navigation = useNavigation();
-
-    
     const route = useRoute()
     const { name, imageApresentation, images, description, price } = route.params.house
     const [activeSlide, setActiveSlide] = useState(0);
@@ -22,21 +19,15 @@ export default function App() {
         <View style={Styles.sectionImage}><Image key={index} source={{ uri: item }} style={Styles.image} /></View>
     )
 
-
     const [isPasswordVisible, setPasswordVisible] = useState(false);
-
     const togglePasswordVisibility = () => {
         /* if(isPasswordVisible){
             
         } */
         setPasswordVisible(!isPasswordVisible);
     };
-    
     return (
-
         <View style={Styles.container}>
-
-
             <Carousel
                 data={images}
                 renderItem={renderItem}
@@ -46,7 +37,7 @@ export default function App() {
                 style={Styles.sectionImage}
                 onSnapToItem={(index) => setActiveSlide(index)}
             />
-             <View style={Styles.pagination}>
+            <View style={Styles.pagination}>
                 <Pagination
                     dotsLength={images.length}
                     activeDotIndex={activeSlide}
@@ -55,24 +46,28 @@ export default function App() {
                     inactiveDotScale={0.6}
                 />
             </View>
-            <View style={Styles.sectionImage}> 
-                    <IconFavorite
-                        onPress={togglePasswordVisibility}
-                        name={isPasswordVisible ? 'heart-sharp' : 'heart-outline'}
-                        color={'#ffffff'}
-                        size={30}
-                        style={Styles.icon}
-                    />
-            </View>
+            <IconFavorite
+                onPress={togglePasswordVisibility}
+                name={isPasswordVisible ? 'heart-sharp' : 'heart-outline'}
+                color={'red'}
+                size={35}
+                style={Styles.icon}
+            />
+
+            <Icon
+                style={Styles.iconBack}
+                name="arrow-back-outline"
+                size={30}
+                color="#fff"
+                onPress={() => navigation.navigate("Houses" as never)}
+            />
+
             <View style={Styles.dados}>
                 <Text style={Styles.title}>{name}</Text>
-
                 <Text style={Styles.price}>R$ {price}</Text>
-
                 <View style={Styles.sectionDescription}>
                     <Text style={Styles.textDescription}>{description}</Text>
                 </View>
-
                 <View style={Styles.sectionButton}>
                     <TouchableOpacity style={Styles.button}>
                         <Text style={Styles.textButton}>More informations</Text>

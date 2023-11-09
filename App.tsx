@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer} from "@react-navigation/native";
 import Routes from "./src/routes";
 
 import { Montserrat_700Bold, useFonts, Montserrat_100Thin } from "@expo-google-fonts/montserrat";

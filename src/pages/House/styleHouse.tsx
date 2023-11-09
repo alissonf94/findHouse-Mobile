@@ -1,25 +1,34 @@
 import {StyleSheet} from 'react-native'
 
-
 const Styles = StyleSheet.create({
     container : {
         flex: 1,
         backgroundColor: '#FFFFFF'
     },
+    
     sectionImage:{
-        width:'100%',
-        height: '50%'
+        flex: 5
     },
-    background:{
+    dados:{
+        flex: 1
+    },
+    pagination:{
+        flex: 0,
+        
+    },
+    image:{
         flex: 1,
         flexDirection: 'row',
         justifyContent:'space-between',
         padding: 10,
+        width:'100%',
+        height:'100%'
     },
     icon: {
         marginRight: 20,
         marginTop: 40
         
+       
     },
     title: {
         fontFamily: 'Montserrat_700Bold',

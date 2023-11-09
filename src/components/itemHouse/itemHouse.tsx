@@ -2,15 +2,12 @@ import Styles from "./styleItemHouse"
 import { House} from '../../Data/ListHouses'
 import {View, Image} from 'react-native'
 import { Text, TouchableOpacity } from "react-native"
-import { useNavigation} from '@react-navigation/native';
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
+import {useNavigation} from '@react-navigation/native';
 export default function App({name, imageApresentation,images, description,price}:House){
-    
-    const navigation = useNavigation<NativeStackNavigationProp<any>>();
-    
+    const navigation = useNavigation<any>();
     const goToHouse = () => {
-        navigation.navigate('House',{house: {name, imageApresentation,images, description,price}})
+
+        navigation.navigate('House', {'House':{name, imageApresentation,images, description,price}})
       };
 
     return(

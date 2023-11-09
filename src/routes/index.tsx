@@ -8,8 +8,9 @@ import Favorites from "../pages/Favorites/indexFavorites";
 import Profile from "../pages/Profile/indexProfile";
 import House from '../pages/House/indexHouse'
 import Contact from "../pages/Contact/indexContact";
-// stack e uma dependencia de navegacao que e necessario instalar na sua maquina
-const Stack = createNativeStackNavigator();
+import { RootStackParamList } from "../types/RootStackParamList";
+// stack e uma dependencia de navegacao que e neces<sario instalar na sua maquina
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // rotas para nevegacao entre paginas
 

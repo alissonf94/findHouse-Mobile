@@ -6,6 +6,7 @@ import { useRoute } from "@react-navigation/native";
 const screenWidth = Dimensions.get('window').width;
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useState } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function App() {
     const navigation = useNavigation();

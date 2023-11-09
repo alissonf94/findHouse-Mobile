@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Ionicons } from '@expo/vector-icons'; // Make sure to import Ionicons from the correct package
+import { Ionicons } from '@expo/vector-icons';
 import Styles from "./styleProfile";
 import IconVisibility from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
@@ -54,7 +54,7 @@ export default function EditProfile() {
       />
       <View style={Styles.logoutContent}>
         <Ionicons
-          name="exit" // Use "exit" as the icon name for log out
+          name="exit"
           size={30}
           color="#fff"
           style={Styles.logoutIcon}

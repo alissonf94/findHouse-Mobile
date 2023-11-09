@@ -1,7 +1,6 @@
 import { Image, Text, TouchableOpacity, View, Dimensions, ImageBackground } from 'react-native'
 import Styles from './styleHouse'
 import IconFavorite from "react-native-vector-icons/Ionicons";
-import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 const screenWidth = Dimensions.get('window').width;
@@ -11,7 +10,7 @@ import { useState } from 'react';
 export default function App() {
     const navigation = useNavigation();
     const route:any = useRoute()
-    const { name, imageApresentation, images, description, price } = route.params.house
+    const { name, images, description, price } = route.params.house
     const [activeSlide, setActiveSlide] = useState(0);
     const renderItem = ({ item, index }: any) =>
     (
@@ -34,7 +33,8 @@ export default function App() {
                 itemWidth={screenWidth}
                 layout={'default'}
                 style={Styles.sectionImage}
-                onSnapToItem={(index) => setActiveSlide(index)}
+                onSnapToItem={(index) => setActiveSlide(index)
+                }
             />
             <View style={Styles.pagination}>
                 <Pagination
@@ -43,6 +43,7 @@ export default function App() {
                     containerStyle={{ paddingVertical: 10 }}
                     inactiveDotOpacity={0.4}
                     inactiveDotScale={0.6}
+                    
                 />
             </View>
             <IconFavorite

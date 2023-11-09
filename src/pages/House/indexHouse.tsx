@@ -1,6 +1,5 @@
 import { Image, Text, TouchableOpacity, View, Dimensions, ImageBackground } from 'react-native'
 import Styles from './styleHouse'
-import house1 from '../../images/house1.png'
 import IconFavorite from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from '@react-navigation/native';
@@ -11,20 +10,20 @@ import { useState } from 'react';
 
 export default function App() {
     const navigation = useNavigation();
-    const route = useRoute()
+    const route:any = useRoute()
     const { name, imageApresentation, images, description, price } = route.params.house
     const [activeSlide, setActiveSlide] = useState(0);
-    const renderItem = ({ item }: { item: string }, index: number) =>
+    const renderItem = ({ item, index }: any) =>
     (
         <View style={Styles.sectionImage}><Image key={index} source={{ uri: item }} style={Styles.image} /></View>
     )
 
-    const [isPasswordVisible, setPasswordVisible] = useState(false);
-    const togglePasswordVisibility = () => {
-        /* if(isPasswordVisible){
-            
-        } */
-        setPasswordVisible(!isPasswordVisible);
+    const [isFavority, setFavority] = useState(false);
+    const toggleFavority = () => {
+        if(isFavority){
+            /* product.favorite = false */
+        }
+        setFavority(!isFavority);
     };
     return (
         <View style={Styles.container}>
@@ -47,8 +46,8 @@ export default function App() {
                 />
             </View>
             <IconFavorite
-                onPress={togglePasswordVisibility}
-                name={isPasswordVisible ? 'heart-sharp' : 'heart-outline'}
+                onPress={toggleFavority}
+                name={isFavority ? 'heart-sharp' : 'heart-outline'}
                 color={'red'}
                 size={35}
                 style={Styles.icon}

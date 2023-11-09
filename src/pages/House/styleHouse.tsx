@@ -13,8 +13,7 @@ const Styles = StyleSheet.create({
         flex: 1
     },
     pagination:{
-        flex: 0,
-        
+        flex: 0,    
     },
     image:{
         flex: 1,
@@ -25,10 +24,15 @@ const Styles = StyleSheet.create({
         height:'100%'
     },
     icon: {
-        marginRight: 20,
-        marginTop: 40
+        position:'absolute',
+        top:"40%",
+        right:"8%",
         
-       
+    },
+    iconBack: {
+        position:'absolute',
+        top:"40%",
+        left:"8%"
     },
     title: {
         fontFamily: 'Montserrat_700Bold',

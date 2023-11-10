@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
     const navigation = useNavigation();
     const route:any = useRoute()
-    const { name, images, description, price } = route.params.house
+    const { name, images, description, price } = route.params.House
     const [activeSlide, setActiveSlide] = useState(0);
     const renderItem = ({ item, index }: any) =>
     (

@@ -35,7 +35,7 @@ export default function Contact() {
                 name="arrow-back-outline"
                 size={30}
                 color="#fff"
-                onPress={() => navigation.navigate("House" as never)}
+                onPress={() => navigation.navigate("Houses" as never)}
             />
             <Text style={Styles.containerHeader}>
                 <Text style={Styles.message}>Tenho interesse neste imovel</Text>

@@ -7,38 +7,36 @@ import {
   ImageBackground,
 } from "react-native";
 import Styles from "./styleHouse";
-import house1 from "../../images/house1.png";
 import IconFavorite from "react-native-vector-icons/Ionicons";
-import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 const screenWidth = Dimensions.get("window").width;
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { useState } from "react";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function App() {
   const navigation = useNavigation();
-  const route = useRoute();
-  const { name, imageApresentation, images, description, price } =
-    route.params.house;
+  const route: any = useRoute();
+  const house = route.params.House;
   const [activeSlide, setActiveSlide] = useState(0);
-  const renderItem = ({ item }: { item: string }, index: number) => (
+  const renderItem = ({ item, index }: any) => (
     <View style={Styles.sectionImage}>
       <Image key={index} source={{ uri: item }} style={Styles.image} />
     </View>
   );
 
-  const [isPasswordVisible, setPasswordVisible] = useState(false);
-  const togglePasswordVisibility = () => {
-    /* if(isPasswordVisible){
-            
-        } */
-    setPasswordVisible(!isPasswordVisible);
+  const [isFavority, setFavority] = useState(false);
+  const toggleFavority = () => {
+    if (isFavority) {
+      /* product.favorite = false */
+    }
+    setFavority(!isFavority);
   };
   return (
     <View style={Styles.container}>
       <Carousel
-        data={images}
+        data={house.images}
         renderItem={renderItem}
         sliderWidth={screenWidth}
         itemWidth={screenWidth}
@@ -48,7 +46,7 @@ export default function App() {
       />
       <View style={Styles.pagination}>
         <Pagination
-          dotsLength={images.length}
+          dotsLength={house.images.length}
           activeDotIndex={activeSlide}
           containerStyle={{ paddingVertical: 10 }}
           inactiveDotOpacity={0.4}
@@ -56,8 +54,8 @@ export default function App() {
         />
       </View>
       <IconFavorite
-        onPress={togglePasswordVisibility}
-        name={isPasswordVisible ? "heart-sharp" : "heart-outline"}
+        onPress={toggleFavority}
+        name={isFavority ? "heart-sharp" : "heart-outline"}
         color={"red"}
         size={35}
         style={Styles.icon}
@@ -72,13 +70,16 @@ export default function App() {
       />
 
       <View style={Styles.dados}>
-        <Text style={Styles.title}>{name}</Text>
-        <Text style={Styles.price}>R$ {price}</Text>
+        <Text style={Styles.title}>{house.name}</Text>
+        <Text style={Styles.price}>R$ {house.price}</Text>
         <View style={Styles.sectionDescription}>
-          <Text style={Styles.textDescription}>{description}</Text>
+          <Text style={Styles.textDescription}>{house.description}</Text>
         </View>
         <View style={Styles.sectionButton}>
-          <TouchableOpacity style={Styles.button}>
+          <TouchableOpacity
+            style={Styles.button}
+            onPress={() => navigation.navigate("Contact" as never)}
+          >
             <Text style={Styles.textButton}>More informations</Text>
           </TouchableOpacity>
         </View>

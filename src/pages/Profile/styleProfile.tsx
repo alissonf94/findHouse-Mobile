@@ -30,7 +30,6 @@ const Styles = StyleSheet.create({
   },
   label: {
     fontSize: 20,
-    marginTop: 28,
     fontFamily: "Montserrat_700Bold",
     color: "#fff",
   },
@@ -40,7 +39,7 @@ const Styles = StyleSheet.create({
     borderColor: "#FFFFFF",
     borderWidth: 1,
     marginTop: "5%",
-    marginBottom: "3%",
+    marginBottom: "10%",
     borderRadius: 30,
     padding: 10,
   },
@@ -49,26 +48,15 @@ const Styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     height: 60,
-    paddingVertical: 8,
     alignItems: "center",
-    marginTop: 50,
+    marginTop: "5%",
+    marginBottom: "5%",
     borderRadius: 20,
   },
   buttonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
-  },
-  buttonLogout: {
-    backgroundColor: "#c94c4c",
-    width: "100%",
-    justifyContent: "center",
-    height: 60,
-    paddingVertical: 8,
-    alignItems: "center",
-    marginTop: 20,
-    borderRadius: 20,
-    flexDirection: "row",
   },
   profileImage: {
     width: 120,
@@ -77,29 +65,18 @@ const Styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 25,
   },
-  icon: {
-    marginTop: "5%",
-    width: "95%",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
+  
   logoutContent: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-end", // Align the items to the right
-  },
-  logoutIcon: {
-    marginTop:-30,
+    justifyContent: "space-between", 
+    marginTop:"10%",
+
   },
   iconContainer: {
     position: "absolute",
     right: 18,
-    top: "62.8%",
-  },
-  iconContainerconfirm: {
-    position: "absolute",
-    right: 18,
-    top: "79.7%",
+    top: "62.5%",
   },
 });
 

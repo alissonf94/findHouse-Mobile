@@ -8,6 +8,7 @@ import Favorites from "../pages/Favorites/indexFavorites";
 import Profile from "../pages/Profile/indexProfile";
 import House from '../pages/House/indexHouse'
 import Contact from "../pages/Contact/indexContact";
+import Interest from "../pages/Interest/indexInterest";
 import { RootStackParamList } from "../types/RootStackParamList";
 // stack e uma dependencia de navegacao que e neces<sario instalar na sua maquina
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -28,7 +29,6 @@ export default function Routes() {
         component={SignIn}
         options={{ headerShown: false, }}
       />
-
       <Stack.Screen
         name="Register"
         component={Register}
@@ -50,13 +50,20 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="House"
-      component={House}
-      options={{ headerShown: false }}
-       />
+        component={House}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="Contact"
-      component={Contact}
-      options={{ headerShown: false }}
-       />
+        component={Contact}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen name="Interest"
+      component={Interest}
+      options={{ headerShown: false}}
+      
+      />
+
     </Stack.Navigator>
   );
 }

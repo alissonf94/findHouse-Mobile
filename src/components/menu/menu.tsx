@@ -26,7 +26,7 @@ export default function App() {
         name="add-to-list"
         color={"#675D50"}
         size={25}
-        onPress={() => navigation.navigate("Favorites" as never)}
+        onPress={() => navigation.navigate("Interest" as never)}
       />
       <IconUser 
       name="user" 

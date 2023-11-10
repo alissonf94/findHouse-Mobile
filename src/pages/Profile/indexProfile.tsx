@@ -41,23 +41,21 @@ export default function EditProfile() {
       navigation.navigate("Houses" as never);
     }
   };
-  
+
 
   return (
     <View style={Styles.container}>
-      <Icon
-        style={Styles.icon}
-        name="chevron-back-outline"
-        size={30}
-        color="#fff"
-        onPress={() => navigation.navigate("Houses" as never)}
-      />
       <View style={Styles.logoutContent}>
+        <Icon
+          name="arrow-back-outline"
+          size={30}
+          color="#fff"
+          onPress={() => navigation.navigate("Houses" as never)}
+        />
         <Ionicons
           name="exit"
           size={30}
           color="#fff"
-          style={Styles.logoutIcon}
           onPress={() => navigation.navigate("Welcome" as never)}
         />
       </View>
@@ -117,11 +115,11 @@ export default function EditProfile() {
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
 
+      </ScrollView>
         <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
           <Text style={Styles.buttonText}>Save Changes</Text>
         </TouchableOpacity>
-      </ScrollView>
-      <StatusBar/>
+      <StatusBar />
     </View>
   );
 }

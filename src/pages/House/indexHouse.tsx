@@ -70,7 +70,8 @@ export default function App() {
                     <Text style={Styles.textDescription}>{house.description}</Text>
                 </View>
                 <View style={Styles.sectionButton}>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity style={Styles.button}
+                    onPress={()=>navigation.navigate("Contact" as never)}>
                         <Text style={Styles.textButton}>More informations</Text>
                     </TouchableOpacity>
                 </View>

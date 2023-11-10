@@ -4,7 +4,6 @@ const Styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#9EA2A2",
-        padding: 15,
         fontFamily: "Montserrat_700Bold",
       },
       containerHeader: {

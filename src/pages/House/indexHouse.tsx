@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function App() {
     const navigation = useNavigation();
     const route:any = useRoute()
-    const { name, images, description, price } = route.params.house
+    const house = route.params.House
     const [activeSlide, setActiveSlide] = useState(0);
     const renderItem = ({ item, index }: any) =>
     (
@@ -28,7 +28,7 @@ export default function App() {
     return (
         <View style={Styles.container}>
             <Carousel
-                data={images}
+                data={house.images}
                 renderItem={renderItem}
                 sliderWidth={screenWidth}
                 itemWidth={screenWidth}
@@ -39,7 +39,7 @@ export default function App() {
             />
             <View style={Styles.pagination}>
                 <Pagination
-                    dotsLength={images.length}
+                    dotsLength={house.images.length}
                     activeDotIndex={activeSlide}
                     containerStyle={{ paddingVertical: 10 }}
                     inactiveDotOpacity={0.4}
@@ -64,10 +64,10 @@ export default function App() {
             />
 
             <View style={Styles.dados}>
-                <Text style={Styles.title}>{name}</Text>
-                <Text style={Styles.price}>R$ {price}</Text>
+                <Text style={Styles.title}>{house.name}</Text>
+                <Text style={Styles.price}>R$ {house.price}</Text>
                 <View style={Styles.sectionDescription}>
-                    <Text style={Styles.textDescription}>{description}</Text>
+                    <Text style={Styles.textDescription}>{house.description}</Text>
                 </View>
                 <View style={Styles.sectionButton}>
                     <TouchableOpacity style={Styles.button}>

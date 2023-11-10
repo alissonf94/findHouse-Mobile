@@ -4,7 +4,7 @@ import { Text, Button } from "react-native";
 import { FavoriteHouse } from "../../Data/FavoriteHouses";
 import Icon from "react-native-vector-icons/AntDesign";
 
-export default function App({ name, image, price }: FavoriteHouse) {
+export default function App({name, image, price }: FavoriteHouse) {
   return (
     <View style={Styles.container}>
       <Image style={Styles.image} source={image} />

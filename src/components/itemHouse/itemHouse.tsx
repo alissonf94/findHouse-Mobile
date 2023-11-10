@@ -6,8 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 export default function App({name, imageApresentation,images, description,price}:House){
     const navigation = useNavigation<any>();
     const goToHouse = () => {
-
-        navigation.navigate('House', {'House':{name, imageApresentation,images, description,price}})
+        navigation.navigate('House', {'House':{name, imageApresentation, images, description, price}})
       };
 
     return(

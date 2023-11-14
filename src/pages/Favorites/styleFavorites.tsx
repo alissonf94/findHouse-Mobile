@@ -23,12 +23,12 @@ const Styles = StyleSheet.create({
   text:{
     fontSize:20,
     fontFamily: "Montserrat_700Bold",
-    color:"#fff"
+    color:"#fff",
+    marginLeft:"5%",
   },
-  clear:{
-    color:"#800089"
-  },  icon:{
+  icon:{
     marginTop:"5%",
+    marginLeft:"5%",
     width:"95%",
     alignItems:"center",
     justifyContent:"flex-start"

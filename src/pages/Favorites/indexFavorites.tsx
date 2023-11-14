@@ -22,7 +22,6 @@ export default function App() {
       />
       <View style={Styles.containerText}>
         <Text style={Styles.text}>Favorites</Text>
-        <Text style={Styles.clear}>Clear all</Text>
       </View>
       <FlatList
         style={Styles.flat}

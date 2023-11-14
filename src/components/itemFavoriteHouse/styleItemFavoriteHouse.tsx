@@ -48,14 +48,14 @@ const Styles = StyleSheet.create({
   button: {
     borderRadius: 30,
     backgroundColor: "#ABC4AA",
-    textAlign: "center",
     width: "70%",
   },
   buttonText: {
-    fontFamily: "Montserrat_700Bold",
+    fontWeight:"500",
     justifyContent: "center",
     marginLeft: 6,
     color: "#FFFF",
+    textAlign:"center"
   },
 });
 

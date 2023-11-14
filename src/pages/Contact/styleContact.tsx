@@ -27,9 +27,10 @@ const Styles = StyleSheet.create({
         marginTop: 28,
         fontFamily: "Montserrat_700Bold",
         color: "#fff",
+        marginLeft:"5%"
       },
       input: {
-        width: "100%",
+        width: "90%",
         height: 50,
         borderColor: "#FFFFFF",
         borderWidth: 1,
@@ -37,9 +38,11 @@ const Styles = StyleSheet.create({
         marginBottom: "3%",
         borderRadius: 30,
         padding: 10,
+        marginLeft:"5%"
       },
       icon: {
         marginTop: "10%",
+        marginLeft:"5%",
         width: "95%",
         alignItems: "center",
         justifyContent: "flex-start"

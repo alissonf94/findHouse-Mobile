@@ -19,19 +19,19 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     width: "93%",
     marginTop: 15,
+    marginLeft: "5%"
   },
   text:{
     fontSize:20,
     fontFamily: "Montserrat_700Bold",
     color:"#fff"
-  },
-  clear:{
-    color:"#800089"
-  },  icon:{
+  },  
+  icon:{
     marginTop:"5%",
     width:"95%",
     alignItems:"center",
-    justifyContent:"flex-start"
+    justifyContent:"flex-start",
+    marginLeft: "5%"
   }
 });
 

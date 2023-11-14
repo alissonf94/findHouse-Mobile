@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Ionicons } from "@expo/vector-icons";
+import IconLogout from "react-native-vector-icons/Ionicons"
 import Styles from "./styleProfile";
 import IconVisibility from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
@@ -51,8 +51,8 @@ export default function EditProfile() {
           color="#fff"
           onPress={() => navigation.navigate("Houses" as never)}
         />
-        <Ionicons
-          name="exit"
+        <IconLogout
+          name="log-out-outline"
           size={30}
           color="#fff"
           onPress={() => navigation.navigate("Welcome" as never)}

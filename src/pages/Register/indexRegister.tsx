@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import IconVisibility from "react-native-vector-icons/FontAwesome";
+import IconVisibility from "react-native-vector-icons/MaterialIcons";
 
 export default function App() {
   const navigation = useNavigation();
@@ -28,25 +28,24 @@ export default function App() {
 
   const checkTextInput = () => {
     if (!textInputName.trim()) {
-      alert("Digite o Nome");
+      alert("Type your name");
       return;
     } else if (!textInputCpf.trim()) {
-      alert("Digite seu cpf");
+      alert("Type your CPF");
       return;
     } else if (!textInputEmail.trim()) {
-      alert("Digite o E-mail");
+      alert("Type your email");
       return;
     } else if (!textInputPassword.trim()) {
-      alert("Digite a senha");
+      alert("Type your password");
       return;
     } else if (!textInputConfirmPassword.trim()) {
-      alert("Confirme a sua senha");
+      alert("Confirm your password");
       return;
     } else if (textInputConfirmPassword !== textInputPassword) {
-      alert("Senhas diferentes")
+      alert("Your password isn't match");
       return;
-    }
-    else {
+    } else {
       navigation.navigate("Houses" as never);
     }
   };
@@ -79,7 +78,7 @@ export default function App() {
         />
         <Text style={Styles.label}>Email</Text>
         <TextInput
-          placeholder="Your email..."
+          placeholder="Your email"
           style={Styles.input}
           value={textInputEmail}
           onChangeText={(value) => setTextInputEmail(value)}
@@ -97,7 +96,7 @@ export default function App() {
           onPress={togglePasswordVisibility}
         >
           <IconVisibility
-            name={isPasswordVisible ? "eye" : "eye-slash"}
+            name={isPasswordVisible ? "visibility" : "visibility-off"}
             size={20}
             color="black"
           />

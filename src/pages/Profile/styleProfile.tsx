@@ -65,18 +65,17 @@ const Styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 25,
   },
-  
+
   logoutContent: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between", 
-    marginTop:"10%",
-
+    justifyContent: "space-between",
+    marginTop: "10%",
   },
   iconContainer: {
     position: "absolute",
     right: 18,
-    top: "62.5%",
+    top: "61.5%",
   },
 });
 

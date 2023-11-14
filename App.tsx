@@ -1,9 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import Routes from "./src/routes";
 
-import { Montserrat_700Bold, useFonts, Montserrat_100Thin } from "@expo-google-fonts/montserrat";
+import {
+  Montserrat_700Bold,
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+} from "@expo-google-fonts/montserrat";
 
 import { Inter_100Thin } from "@expo-google-fonts/inter";
 import { Roboto_700Bold } from "@expo-google-fonts/roboto";
@@ -13,7 +19,9 @@ export default function App() {
     Montserrat_700Bold,
     Montserrat_100Thin,
     Inter_100Thin,
-    Roboto_700Bold
+    Roboto_700Bold,
+    Montserrat_300Light,
+    Montserrat_400Regular,
   });
 
   if (!fontsErro && !fonsLoad) {

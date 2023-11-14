@@ -1,112 +1,49 @@
 import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
-  containe: {
+  container: {
     flexDirection: "row",
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     width: "94%",
-    height: 150,
-    marginLeft: 10,
-    paddingRight: 20,
     borderRadius: 20,
-    marginBottom: 40,
+    marginLeft: "3%",
+    padding: "3%",
+    marginBottom: "3%",
   },
-  imag: {
-    width: 160,
-    height: 140,
-    borderRadius: 10,
-    
- 
+  containerHouse: {
+    width: "37%",
   },
-  containerTex: {
-    flex: 1,
-    marginLeft: 16,
-    gap: 2,
-    margin: -130
-    
+  textHouse: {
+    fontSize: 22,
+    fontFamily: "Montserrat_300Light",
   },
-
-  containerTexte: {
-    margin: -130,
-    marginLeft: 25
-  },
-
-  textNam: {
-    fontFamily: "Montserrat_100Thin",
-    fontSize: 20,
-    marginTop: 3,
-    width: 150,
-    marginLeft: 170,
-  },
-
-  textDescription: {
-    fontFamily: "Inter_100Thin",
-    fontSize: 12,
-    marginTop: 3,
-    width: 180,
-    
-  },
-
-  option: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginLeft: 170,
-  },
-  butto: {
-    borderRadius: 30,
-    backgroundColor: "#ABC4AA",
-    textAlign: "center",
-    width: "38%",
-  },
-
-  buttonTex: {
-    fontFamily: "Montserrat_700Bold",
-    justifyContent: "center",
-    marginLeft: 6,
-    color: "red",
-  
+  textName: {
+    fontSize: 18,
+    fontFamily: "Montserrat_400Regular",
   },
   icon: {
     flexDirection: "row",
+    marginTop: "5%",
+  },
+  textIcon: {
+    marginLeft: "4%",
+  },
+  button: {
     alignItems: "center",
-    marginLeft: 170,
-  
+    width: "50%",
+    marginTop: "3%",
+    marginLeft: "30%",
+    backgroundColor: "black",
+    borderRadius: 30,
   },
-
-  clock: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginLeft: 170,
+  buttonText: {
+    textAlign: "center",
+    color: "#fff",
+    fontWeight: "500",
+    fontSize: 14,
   },
-
-  textHora: {
-    fontFamily: "Roboto_700Bold",
-    fontSize: 15,
-    marginTop: 3,
-    color: "#404F4C",
-  },
-
-  textData: {
-    fontFamily: "Roboto_700Bold",
-    fontSize: 15,
-    marginTop: 3,
-    color: "#404F4C",
-
-  },
-  textLocal: {
-    fontSize: 15,
-
-  },
-  overlayText: {
-   position: 'absolute',
-   top: 50,
-   fontFamily: "Roboto_700Bold",
-   fontSize: 20,   
-  },
- 
 });
 
 export default Styles;

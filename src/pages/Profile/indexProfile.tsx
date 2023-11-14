@@ -8,9 +8,9 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 import Styles from "./styleProfile";
-import IconVisibility from "react-native-vector-icons/FontAwesome";
+import IconVisibility from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
 
 export default function EditProfile() {
@@ -28,20 +28,19 @@ export default function EditProfile() {
 
   const checkTextInput = () => {
     if (!textInputFullName || !textInputFullName.trim()) {
-      alert("Type your Full Name");
+      alert("Type your name");
     } else if (!textInputusername || !textInputusername.trim()) {
       alert("Type your username");
     } else if (!textInputEmail || !textInputEmail.trim()) {
-      alert("Type your E-mail");
+      alert("Type your email");
     } else if (!textInputPassword || !textInputPassword.trim()) {
       alert("Type your password");
     } else if (!textInputConfirmPassword || !textInputConfirmPassword.trim()) {
-      alert("Confirm your password");
+      alert("Your password isn't match");
     } else {
       navigation.navigate("Houses" as never);
     }
   };
-
 
   return (
     <View style={Styles.container}>
@@ -74,13 +73,7 @@ export default function EditProfile() {
           value={textInputFullName}
           onChangeText={(value) => setTextInputName(value)}
         />
-        <Text style={Styles.label}>Username</Text>
-        <TextInput
-          placeholder="Your username"
-          style={Styles.input}
-          value={textInputusername}
-          onChangeText={(value) => setTextInputUsername(value)}
-        />
+
         <Text style={Styles.label}>Email</Text>
         <TextInput
           placeholder="Your email"
@@ -101,7 +94,7 @@ export default function EditProfile() {
           onPress={togglePasswordVisibility}
         >
           <IconVisibility
-            name={isPasswordVisible ? "eye" : "eye-slash"}
+            name={isPasswordVisible ? "visibility" : "visibility-off"}
             size={20}
             color="black"
           />
@@ -114,11 +107,10 @@ export default function EditProfile() {
           value={textInputConfirmPassword}
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
-
       </ScrollView>
-        <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
-          <Text style={Styles.buttonText}>Save Changes</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
+        <Text style={Styles.buttonText}>Save Changes</Text>
+      </TouchableOpacity>
       <StatusBar />
     </View>
   );

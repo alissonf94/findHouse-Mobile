@@ -12,11 +12,10 @@ import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
-
 export default function App() {
   const navigation = useNavigation();
-  const [textInputEmail, setTextInputEmail] = useState('');
-  const [textInputPassword, setTextInputPassword] = useState('');
+  const [textInputEmail, setTextInputEmail] = useState("");
+  const [textInputPassword, setTextInputPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -24,15 +23,13 @@ export default function App() {
   };
   const checkTextInput = () => {
     if (!textInputEmail.trim()) {
-      alert('Digite o E-mail');
+      alert("Type your email");
       return;
-    }
-    else if (!textInputPassword.trim()) {
-      alert('Digite a Senha');
+    } else if (!textInputPassword.trim()) {
+      alert("Type your password");
       return;
-    }
-    else {
-      navigation.navigate("Houses" as never)
+    } else {
+      navigation.navigate("Houses" as never);
     }
   };
 
@@ -51,19 +48,28 @@ export default function App() {
       <ScrollView style={Styles.containerform}>
         <Text style={Styles.label}>Email</Text>
         <TextInput
-          placeholder="Your email..."
+          placeholder="Your email"
           style={Styles.input}
-          onChangeText={(value) => setTextInputEmail(value)} />
-          
+          onChangeText={(value) => setTextInputEmail(value)}
+        />
+
         <Text style={Styles.label}>Password</Text>
         <TextInput
           placeholder="Your password"
           style={Styles.input}
           secureTextEntry={!isPasswordVisible}
           value={textInputPassword}
-          onChangeText={(value) => setTextInputPassword(value)} />
-        <TouchableOpacity style={Styles.iconContainer} onPress={togglePasswordVisibility}>
-          <IconVisibility name={isPasswordVisible ? 'visibility' : 'visibility-off'} size={24} color="black" />
+          onChangeText={(value) => setTextInputPassword(value)}
+        />
+        <TouchableOpacity
+          style={Styles.iconContainer}
+          onPress={togglePasswordVisibility}
+        >
+          <IconVisibility
+            name={isPasswordVisible ? "visibility" : "visibility-off"}
+            size={24}
+            color="black"
+          />
         </TouchableOpacity>
 
         <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
@@ -72,7 +78,8 @@ export default function App() {
 
         <TouchableOpacity
           style={Styles.buttonRegister}
-          onPress={() => navigation.navigate("Register" as never)}>
+          onPress={() => navigation.navigate("Register" as never)}
+        >
           <Text style={Styles.registerText}>Don't have account? Sign Up</Text>
         </TouchableOpacity>
       </ScrollView>

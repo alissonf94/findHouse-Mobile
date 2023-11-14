@@ -6,28 +6,26 @@ import Icon from "react-native-vector-icons/AntDesign";
 
 export default function App({ name, data, hora, local }: Interest) {
   return (
-    
-    <View style={Styles.containe}>
-      <View style={Styles.containerTexte}>
-      <Text style={Styles.textLocal}>{local}</Text>
+    <View style={Styles.container}>
+      <View style={Styles.containerHouse}>
+        <Text style={Styles.textHouse}>{local}</Text>
       </View>
-      <View style={Styles.containerTex}>
-        <Text style={Styles.textNam}>{name}</Text>
-        <View style={Styles.icon}>  
-        <Icon name="calendar" size={20} color='#000'/>
-        <Text style={Styles.textData}>{data}</Text>
+      <View>
+        <Text style={Styles.textName}>Broker: {name}</Text>
+        <View style={Styles.icon}>
+          <Icon name="calendar" size={20} color="#000" />
+          <Text style={Styles.textIcon}>{data}</Text>
         </View>
-        <View style ={Styles.clock}>
-        <Icon name="clockcircleo" size={20} color='#000'/>
-        <Text style={Styles.textHora}>{hora}</Text>
+        <View style={Styles.icon}>
+          <Icon name="clockcircleo" size={20} color="#000" />
+          <Text style={Styles.textIcon}>{hora}</Text>
         </View>
-        <View style={Styles.option}>
-          <TouchableOpacity style={Styles.butto}>
-            <Text style={Styles.buttonTex}> CANCELAR </Text>
+        <View>
+          <TouchableOpacity style={Styles.button}>
+            <Text style={Styles.buttonText}>CANCEL</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
-  )
+  );
 }
-

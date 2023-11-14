@@ -10,18 +10,18 @@ export default function App() {
   function renderItem({ item }: ListRenderItemInfo<Interest>) {
     return <ItemHouse {...item} />;
   }
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
   return (
     <View style={Styles.container}>
       <Icon
-      style={Styles.icon}
-      name= "arrow-back-outline"
-      size={30}
-      color="#fff"
-      onPress={() => navigation.navigate("Houses" as never)}
+        style={Styles.icon}
+        name="arrow-back-outline"
+        size={30}
+        color="#fff"
+        onPress={() => navigation.navigate("Houses" as never)}
       />
       <View style={Styles.containerText}>
-        <Text style={Styles.text}>Interesses</Text>
+        <Text style={Styles.text}>Interests</Text>
       </View>
       <FlatList
         style={Styles.flat}
@@ -30,8 +30,6 @@ export default function App() {
         keyExtractor={(item) => item.name}
       />
       <Menu />
-
     </View>
-  )
+  );
 }
-

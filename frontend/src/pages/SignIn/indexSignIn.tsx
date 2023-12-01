@@ -5,12 +5,15 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ToastAndroid
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import IconVisibility from "react-native-vector-icons/MaterialIcons";
 import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import AuthService from "../../services/auhtService/AuthService"
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   const navigation = useNavigation();
@@ -21,6 +24,32 @@ export default function App() {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!isPasswordVisible);
   };
+
+  const handleSubmit = async ()=>{
+    checkTextInput()
+    
+    const data = 
+    {
+      email: textInputEmail,
+      password: textInputPassword,
+    }
+
+    try {
+      const response =  await AuthService.loginService(data)
+      let result = await response.json()
+      
+      if(response.status !== 201){
+        ToastAndroid.show(result.message, ToastAndroid.SHORT);
+      }
+      else{
+        navigation.navigate("Houses" as never);
+      }
+    } 
+    catch (error) {
+      
+    }
+  }
+
   const checkTextInput = () => {
     if (!textInputEmail.trim()) {
       alert("Type your email");
@@ -28,8 +57,6 @@ export default function App() {
     } else if (!textInputPassword.trim()) {
       alert("Type your password");
       return;
-    } else {
-      navigation.navigate("Houses" as never);
     }
   };
 
@@ -72,7 +99,7 @@ export default function App() {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
+        <TouchableOpacity style={Styles.button} onPress={()=> handleSubmit()}>
           <Text style={Styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
 
@@ -84,6 +111,7 @@ export default function App() {
         </TouchableOpacity>
       </ScrollView>
       <StatusBar style="auto" />
+      <Toast/>
     </View>
   );
 }

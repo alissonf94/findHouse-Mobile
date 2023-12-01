@@ -9,9 +9,11 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ToastAndroid
 } from "react-native";
 import React from "react";
 import IconVisibility from "react-native-vector-icons/MaterialIcons";
+import UserService from "../../services/userService/UserService"
 
 export default function App() {
   const navigation = useNavigation();
@@ -21,6 +23,29 @@ export default function App() {
   const [textInputName, setTextInputName] = useState("");
   const [textInputEmail, setTextInputEmail] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+
+  const handleSubmit = async () => {
+    checkTextInput();
+
+    const data = {
+      name: textInputName,
+      cpf: textInputCpf,
+      email: textInputEmail,
+      password: textInputPassword
+    }
+
+    const response = await UserService.createUser(data)
+    const result = await response.json()
+
+    if (response.status !== 201) {
+      ToastAndroid.show(result.message, ToastAndroid.SHORT);
+    }
+    
+    else 
+    {
+      navigation.navigate("Houses" as never);
+    }
+  }
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!isPasswordVisible);
@@ -110,7 +135,7 @@ export default function App() {
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
 
-        <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
+        <TouchableOpacity style={Styles.button} onPress={handleSubmit}>
           <Text style={Styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
 

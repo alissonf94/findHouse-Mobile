@@ -4,8 +4,14 @@ import Icon from "react-native-vector-icons/EvilIcons";
 import Menu from "../../components/menu/menu";
 import { House, HouseList } from "../../Data/ListHouses";
 import ItemHouse from "../../components/itemHouse/itemHouse";
+import { FAB } from "@rneui/themed";
+import { useNavigation } from "@react-navigation/native";
 
 export default function App() {
+  const navigation = useNavigation();
+  const openChat = () =>{
+     navigation.navigate("Chat" as never)
+  }
   function renderItem({ item }: ListRenderItemInfo<House>) {
     return <ItemHouse {...item} />;
   }
@@ -21,6 +27,12 @@ export default function App() {
         renderItem={renderItem}
         data={HouseList}
         keyExtractor={(item) => item.name}
+      />
+      <FAB style={Styles.fab}
+      visible={true}
+      icon={{name:'chat',color:'white'}}
+      color="green"
+      onPress={()=>openChat() }
       />
       <Menu />
     </View>

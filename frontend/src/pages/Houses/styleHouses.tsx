@@ -26,6 +26,11 @@ const Styles = StyleSheet.create({
         marginTop: 20,
         width: "100%",
         
+    },
+    fab:{
+        position: "absolute",
+        right:30,
+        bottom:30 
     }
 })
 

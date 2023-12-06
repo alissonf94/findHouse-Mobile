@@ -24,6 +24,10 @@ const UserSchema = new Schema(
       type: String,
       required: true
     },
+    imageProfile: {
+      type: String,
+      maxlength: 10000
+    }
   }
 )
 

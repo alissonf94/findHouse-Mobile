@@ -10,15 +10,15 @@ import {
 import styles from "./ChatStyle";
 import Balloon from "./Baloon";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import storageService from "../../services/storageService";
+import storageService from "../../services/ChatService/storageService";
 import { webSocket, socket } from "../../services/webSocket";
 
 const Chat = ({ route }: any) => {
   const [content, setContent] = useState("");
-  const [chat, setChat] = useState({messages:[]});
+  const [chat, setChat] = useState({ messages: [] });
   const [userData, setUserData] = useState({ name: "" });
   useEffect(() => {
-    storageService.getItem('userData').then((userData) => {
+    storageService.getItem("userData").then((userData) => {
       setUserData(userData);
       socket.on("chat", (response: any) => {
         setText("");

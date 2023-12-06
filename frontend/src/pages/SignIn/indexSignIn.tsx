@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import AuthService from "../../services/auhtService/AuthService"
 import Toast from 'react-native-toast-message';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
   const navigation = useNavigation();
@@ -42,6 +43,7 @@ export default function App() {
         ToastAndroid.show(result.message, ToastAndroid.SHORT);
       }
       else{
+        await AsyncStorage.setItem("token", `Bearer ${result}`)
         navigation.navigate("Houses" as never);
       }
     } 

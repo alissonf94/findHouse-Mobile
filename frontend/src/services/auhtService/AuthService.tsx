@@ -1,6 +1,6 @@
 const ip = "192.168.0.109"
 
-function loginService (data){
+function loginService (data: any){
     return fetch(`http://${ip}:3333/login`,{
        method: "POST",
        headers:{

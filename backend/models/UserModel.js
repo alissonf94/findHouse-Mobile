@@ -9,11 +9,6 @@ const UserSchema = new Schema(
       type: String,
       required: true
     },
-    lastname:
-    {
-      type: String,
-      required: true
-    },
     cpf:
     {
       type: String,
@@ -29,6 +24,10 @@ const UserSchema = new Schema(
       type: String,
       required: true
     },
+    imageProfile: {
+      type: String,
+      maxlength: 10000
+    }
   }
 )
 

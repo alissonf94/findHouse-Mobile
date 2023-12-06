@@ -53,7 +53,7 @@ app.listen(port, ()=>
 )
 
 const corsOptions = {
-  origin: 'http://localhost:3333',
+  origin: 'exp://192.168.0.109:8081',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204, 
   Headers: 'Acess-token', 

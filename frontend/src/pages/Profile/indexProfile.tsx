@@ -1,17 +1,20 @@
-import { StatusBar, Image } from "react-native";
-import { useState } from "react";
+import { StatusBar, Image, Button, ToastAndroid } from "react-native";
+import React, { useState } from "react";
 import {
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import IconLogout from "react-native-vector-icons/Ionicons"
 import Styles from "./styleProfile";
 import IconVisibility from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from 'expo-image-picker';
+import * as UserService  from "../../services/userService/UserService"
 
 export default function EditProfile() {
   const navigation = useNavigation();
@@ -21,11 +24,51 @@ export default function EditProfile() {
   const [textInputPassword, setTextInputPassword] = useState("");
   const [textInputConfirmPassword, setTextInputConfirmPassword] = useState("");
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const [imageProfile, setImageProfile] = useState("")
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!isPasswordVisible);
   };
 
+  const [uriImageProfile,setUriImageProfile] = useState(" ")
+
+  const pickImage = async()=>{
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4,3],
+      quality: 1,
+      base64: true
+    })
+    if(!result.canceled){
+      setImageProfile(result.assets[0].base64 as string)
+    }
+    
+  }
+
+  const handleSetProfile = async ()=>{
+    const response  = await UserService.findByIdUser()
+    
+    const user = await response.json()
+    
+  
+    if(user.imageProfile === ""){
+       setUriImageProfile("https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png")
+    }
+    else{
+      setUriImageProfile(`data:image/jpeg;base64,${user.imageProfile}`)
+      setImageProfile(user.imageProfile)
+    }
+
+    setTextInputName(user.name)
+    setTextInputEmail(user.email)
+    
+  }
+  
+  React.useEffect(()=>{
+    handleSetProfile()
+
+  },[])
   const checkTextInput = () => {
     if (!textInputFullName || !textInputFullName.trim()) {
       alert("Type your name");
@@ -42,6 +85,27 @@ export default function EditProfile() {
     }
   };
 
+  const handleSumbit = async () => {
+ 
+    const data = {
+      name: textInputFullName,
+      email: textInputEmail,
+      password: textInputPassword,
+      imageProfile: imageProfile
+    }
+
+    const response = await UserService.updateUser(data)
+    const result = await response.json()
+    
+    if (response.status !== 201) {
+      ToastAndroid.show(result.message, ToastAndroid.SHORT);
+    }
+    
+    else 
+    {
+      navigation.navigate("Houses" as never);
+    }
+  }
   return (
     <View style={Styles.container}>
       <View style={Styles.logoutContent}>
@@ -59,9 +123,11 @@ export default function EditProfile() {
         />
       </View>
       <Image
-        source={require("../../images/personIconExample.png")}
+      source={{uri: uriImageProfile}}
         style={Styles.profileImage}
       />
+      <Button title="Trocar imagem de perfil
+      " onPress={pickImage}/>
       <Text style={Styles.containerHeader}>
         <Text style={Styles.message}>Edit Your Profile</Text>
       </Text>
@@ -72,6 +138,7 @@ export default function EditProfile() {
           style={Styles.input}
           value={textInputFullName}
           onChangeText={(value) => setTextInputName(value)}
+          
         />
 
         <Text style={Styles.label}>Email</Text>
@@ -108,9 +175,9 @@ export default function EditProfile() {
           onChangeText={(value) => setTextInputConfirmPassword(value)}
         />
       </ScrollView>
-      <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
-        <Text style={Styles.buttonText}>Save Changes</Text>
-      </TouchableOpacity>
+      <TouchableOpacity style={Styles.button} onPress={()=> handleSumbit()}>
+        <Text style={Styles.buttonText} >Save Changes</Text>
+      </TouchableOpacity> 
       <StatusBar />
     </View>
   );

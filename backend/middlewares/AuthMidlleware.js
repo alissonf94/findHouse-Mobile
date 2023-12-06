@@ -37,9 +37,10 @@ function authMiddleware(req, res, next)
             return res.status(401).send({ message: err.message});
         }
 
-        req.userId = decoded.userLogin.id;
-        req.userEmail = decoded.userLogin.email;
-
+        req.userId = decoded.userLogin.id
+        req.userEmail = decoded.userLogin.email
+        req.userImageProfile = decoded.userLogin.imageProfile
+       
         return next();
     })
 }

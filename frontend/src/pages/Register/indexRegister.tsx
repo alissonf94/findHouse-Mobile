@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import React from "react";
 import IconVisibility from "react-native-vector-icons/MaterialIcons";
-import UserService from "../../services/userService/UserService"
+import * as UserService from "../../services/userService/UserService"
 
 export default function App() {
   const navigation = useNavigation();
@@ -43,7 +43,7 @@ export default function App() {
     
     else 
     {
-      navigation.navigate("Houses" as never);
+      navigation.navigate("SignIn" as never);
     }
   }
 

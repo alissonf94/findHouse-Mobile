@@ -13,11 +13,11 @@ async function loginService(email, password){
     
     const userLogin = {
         id: user._id,
-        email: user.email
+        email: user.email,
     }
 
     const secret = process.env.SECRET
-    const token = jwt.sign({studentLogin: userLogin}, secret, {expiresIn: 86400})
+    const token = jwt.sign({userLogin}, secret, {expiresIn: 86400})
 
     return token
 }

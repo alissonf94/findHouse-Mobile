@@ -7,8 +7,7 @@ function authMiddleware(req, res, next)
     const route = req.path
     const nonSegurityRoutes = ['/login', '/register','/house/register']
 
-    if(nonSegurityRoutes.includes(route))
-    {
+    if(nonSegurityRoutes.includes(route)){
         return next()
     }
 

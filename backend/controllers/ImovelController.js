@@ -1,8 +1,8 @@
-const ImovelModel = require('../services/ImovelService');
+const ImovelService = require('../services/ImovelService');
 
 
     // Criação da house.
-     async function createImovelService(req, res, next){
+     async function createImovelController(req, res, next){
         try {
             const result =  await ImovelService.createImovelService(req.body)
             res.status(201).json(result)
@@ -24,16 +24,15 @@ const ImovelModel = require('../services/ImovelService');
 
     // Pegando uma house especifica.
     async function getImovel(req, res, next){
+            const ImovelId = req.params.id;
         
-        const ImovelId = req.params.id;
-
-        try{
-            const result = await ImovelService.getImovel(ImovelId)
-            res.status(201).json(result)
-        } catch (error) {
-            next(error)
-        }
+            try {
+                const result = await ImovelService.getImovelById(ImovelId);  
+                res.status(200).json(result);  
+            } catch (error) {
+                next(error);
     }
+}
 
     // Atualizar dados de alguma house.
     async function updateImovel (req, res, next){
@@ -50,5 +49,5 @@ const ImovelModel = require('../services/ImovelService');
     }
 
     module.exports = {
-        createImovelService, getImovels, updateImovel, getImovel
+        createImovelController, getImovels, updateImovel, getImovel
     }

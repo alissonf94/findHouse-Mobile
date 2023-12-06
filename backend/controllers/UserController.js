@@ -39,7 +39,7 @@ async function findByIdController(req, res, next){
 async function addFavoriteImovel(req, res, next) {
     try {
         const userId = req.userId;
-        const imovelId = req.params.id; // ID do imóvel a ser adicionado aos favoritos
+        const imovelId = req.params.id;
 
         const result = await UserService.addImovelToFavorites(userId, imovelId);
         res.status(200).json(result);
@@ -51,7 +51,7 @@ async function addFavoriteImovel(req, res, next) {
 async function removeFavoriteImovel(req, res, next) {
     try {
         const userId = req.userId;
-        const imovelId = req.params.id; // ID do imóvel a ser removido dos favoritos
+        const imovelId = req.params.id; 
 
         const result = await UserService.removeImovelFromFavorites(userId, imovelId);
         res.status(200).json(result);
@@ -63,7 +63,7 @@ async function removeFavoriteImovel(req, res, next) {
 async function addMeetingController(req, res, next) {
     try {
         const userId = req.userId;
-        const { imovelId, scheduledTime } = req.body; // Supondo que a requisição inclua imovelId e scheduledTime para agendar a visita
+        const { imovelId, scheduledTime } = req.body;
 
         const result = await UserService.addMeeting(userId, imovelId, scheduledTime);
         res.status(200).json(result);
@@ -75,7 +75,7 @@ async function addMeetingController(req, res, next) {
 async function removeMeetingController(req, res, next) {
     try {
         const userId = req.userId;
-        const meetingId = req.params.id; // ID do agendamento a ser removido
+        const meetingId = req.params.id;
 
         const result = await UserService.removeMeeting(userId, meetingId);
         res.status(200).json(result);

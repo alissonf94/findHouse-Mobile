@@ -20,12 +20,14 @@ const authMiddleware = require("../backend/middlewares/AuthMidlleware")
 
 const UserRouter = require("./routers/UserRouter")
 const AuthRouter = require("./routers/AuthRouter")
+const ImovelRouter = require("./routers/ImovelRouter")
 
 app.use(express.json())
 app.use(cors())
 app.use(authMiddleware)
 app.use(UserRouter)
 app.use(AuthRouter)
+app.use(ImovelRouter)
 
 const erroHandling = async (err, req, res, next)=>
 {
@@ -67,12 +69,12 @@ app.use(cors(corsOptions))
 
 
 // conectando com banco de dados:
-/*mongoose
-  .connect(
-    `mongodb+srv://${dbUser}:${dbPassword}@cluster0.3h93jqh.mongodb.net/?retryWrites=true&w=majority`
-  )
-  .then(() => {
-    app.listen(3000);
-    console.log("conectado ao banco!");
-  })
-  .catch((err) => console.log(err));*/
+//mongoose
+// .connect(
+ //   `mongodb+srv://${dbUser}:${dbPassword}@cluster0.3h93jqh.mongodb.net/?retryWrites=true&w=majority`
+ // )
+ // .then(() => {
+ //   app.listen(3000);
+ //   console.log("conectado ao banco!");
+ // })
+ // .catch((err) => console.log(err));

@@ -28,12 +28,12 @@ export default function App() {
         data={HouseList}
         keyExtractor={(item) => item.name}
       />
-      <FAB style={Styles.fab}
+      {/* <FAB style={Styles.fab}
       visible={true}
       icon={{name:'chat',color:'white'}}
       color="green"
       onPress={()=>openChat() }
-      />
+      /> */}
       <Menu />
     </View>
   );

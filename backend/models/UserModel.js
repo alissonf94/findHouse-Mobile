@@ -34,7 +34,20 @@ const UserSchema = new Schema(
           ref: 'ImovelModel'
       }],
       default: []
+    },
+    meetings: {
+      type: [{
+          imovelId: {
+              type: Schema.Types.ObjectId,
+              ref: 'ImovelModel'
+          },
+          scheduledTime: {
+              type: Date
+          }
+      }],
+      default: []
     }
+    
   }
 )
 

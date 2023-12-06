@@ -60,10 +60,36 @@ async function removeFavoriteImovel(req, res, next) {
     }
 }
 
+async function addMeetingController(req, res, next) {
+    try {
+        const userId = req.userId;
+        const { imovelId, scheduledTime } = req.body; // Supondo que a requisição inclua imovelId e scheduledTime para agendar a visita
+
+        const result = await UserService.addMeeting(userId, imovelId, scheduledTime);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+}
+
+async function removeMeetingController(req, res, next) {
+    try {
+        const userId = req.userId;
+        const meetingId = req.params.id; // ID do agendamento a ser removido
+
+        const result = await UserService.removeMeeting(userId, meetingId);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createUserController,
     updateUserController,
     findByIdController,
     addFavoriteImovel,
-    removeFavoriteImovel
+    removeFavoriteImovel,
+    addMeetingController,
+    removeMeetingController
 }

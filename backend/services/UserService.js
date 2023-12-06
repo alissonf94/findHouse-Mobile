@@ -60,8 +60,52 @@ async function findByIdUserService (id){
 
     return user
 }
+
+
+async function addImovelToFavorites(userId, imovelId) {
+    try {
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+            throw new AppError('User not found', 404);
+        }
+
+        if (!user.favorites.includes(imovelId)) {
+            user.favorites.push(imovelId);
+            await user.save();
+        }
+
+        return user;
+    } catch (error) {
+        throw new AppError(error.message, 500);
+    }
+}
+
+
+async function removeImovelFromFavorites(userId, imovelId) {
+    try {
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+            throw new AppError('User not found', 404);
+        }
+
+        const index = user.favorites.indexOf(imovelId);
+        if (index > -1) {
+            user.favorites.splice(index, 1);
+            await user.save();
+        }
+
+        return user;
+    } catch (error) {
+        throw new AppError(error.message, 500);
+    }
+}
+
 module.exports = {
     createUserService, 
     updateUserService,
-    findByIdUserService
+    findByIdUserService,
+    addImovelToFavorites,
+    removeImovelFromFavorites
 }

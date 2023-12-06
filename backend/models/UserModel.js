@@ -27,6 +27,13 @@ const UserSchema = new Schema(
     imageProfile: {
       type: String,
       maxlength: 10000
+    },
+    favorites: {
+      type: [{
+          type: Schema.Types.ObjectId,
+          ref: 'ImovelModel'
+      }],
+      default: []
     }
   }
 )

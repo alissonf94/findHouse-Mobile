@@ -35,8 +35,35 @@ async function findByIdController(req, res, next){
         next(error)
     }
 }
+
+async function addFavoriteImovel(req, res, next) {
+    try {
+        const userId = req.userId;
+        const imovelId = req.params.id; // ID do imóvel a ser adicionado aos favoritos
+
+        const result = await UserService.addImovelToFavorites(userId, imovelId);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+}
+
+async function removeFavoriteImovel(req, res, next) {
+    try {
+        const userId = req.userId;
+        const imovelId = req.params.id; // ID do imóvel a ser removido dos favoritos
+
+        const result = await UserService.removeImovelFromFavorites(userId, imovelId);
+        res.status(200).json(result);
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createUserController,
     updateUserController,
-    findByIdController
+    findByIdController,
+    addFavoriteImovel,
+    removeFavoriteImovel
 }

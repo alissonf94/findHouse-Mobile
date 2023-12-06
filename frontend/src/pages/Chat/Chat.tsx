@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+/*import React, { Fragment, useEffect, useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -71,4 +71,4 @@ const Chat = ({ route }: any) => {
   );
 };
 
-export default Chat;
+export default Chat;*/

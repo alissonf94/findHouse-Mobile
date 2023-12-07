@@ -81,6 +81,20 @@ async function addImovelToFavorites(userId, imovelId) {
     }
 }
 
+async function getFavorites(userId) {
+    try {
+        const user = await UserModel.findById(userId).populate('favorites');
+        
+        if (!user) {
+            throw new AppError('User not found', 404);
+        }
+
+        return user.favorites;
+    } catch (error) {
+        throw new AppError(error.message, 500);
+    }
+}
+
 
 async function removeImovelFromFavorites(userId, imovelId) {
     try {
@@ -144,12 +158,28 @@ async function removeMeeting(userId, meetingId) {
     }
 }
 
+async function getMeetings(userId) {
+    try {
+        const user = await UserModel.findById(userId);
+        
+        if (!user) {
+            throw new AppError('User not found', 404);
+        }
+
+        return user.meetings;
+    } catch (error) {
+        throw new AppError(error.message, 500);
+    }
+}
+
 module.exports = {
     createUserService, 
     updateUserService,
     findByIdUserService,
     addImovelToFavorites,
     removeImovelFromFavorites,
+    getFavorites,
     addMeeting,
-    removeMeeting
+    removeMeeting,
+    getMeetings
 }

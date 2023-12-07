@@ -60,6 +60,17 @@ async function removeFavoriteImovel(req, res, next) {
     }
 }
 
+async function getFavoritesController(req, res, next) {
+    try {
+        const userId = req.userId;
+        const favorites = await UserService.getFavorites(userId);
+
+        res.status(200).json(favorites);
+    } catch (error) {
+        next(error);
+    }
+}
+
 async function addMeetingController(req, res, next) {
     try {
         const userId = req.userId;
@@ -84,12 +95,25 @@ async function removeMeetingController(req, res, next) {
     }
 }
 
+async function getMeetingsController(req, res, next) {
+    try {
+        const userId = req.userId;
+        const meetings = await UserService.getMeetings(userId);
+
+        res.status(200).json(meetings);
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
     createUserController,
     updateUserController,
     findByIdController,
     addFavoriteImovel,
     removeFavoriteImovel,
+    getFavoritesController,
     addMeetingController,
-    removeMeetingController
+    removeMeetingController,
+    getMeetingsController
 }

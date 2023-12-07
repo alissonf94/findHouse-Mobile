@@ -1,18 +1,21 @@
 import Styles from "./styleItemHouse"
-import { House} from '../../Data/ListHouses'
 import {View, Image} from 'react-native'
 import { Text, TouchableOpacity } from "react-native"
 import {useNavigation} from '@react-navigation/native';
-export default function App({name, imageApresentation,images, description,price}:House){
+
+import { House } from "../../types/RootStackParamList";
+
+export default function App({_id, name, imageProfile, images, description,price, agent, city}:House){
     const navigation = useNavigation<any>();
+    
     const goToHouse = () => {
-        navigation.navigate('House', {'House':{name, imageApresentation, images, description, price}})
+        navigation.navigate('House', {'House':{_id ,name, imageProfile, images, description, price, agent, city}})
       };
 
     return(
     <View  >
         <TouchableOpacity style={Styles.container} onPress={ ()=> goToHouse()}>
-            <Image style= {Styles.image} source={imageApresentation}/>
+            <Image style= {Styles.image} source={{uri:imageProfile}}/>
             <View style={Styles.containerText}>
                 <Text style={Styles.textName}>
                     {name}

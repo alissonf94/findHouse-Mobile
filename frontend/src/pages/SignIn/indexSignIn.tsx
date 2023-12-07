@@ -12,7 +12,7 @@ import IconVisibility from "react-native-vector-icons/MaterialIcons";
 import Styles from "./stylesSignIn";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import AuthService from "../../services/auhtService/AuthService"
+import * as AuthService from "../../services/auhtService/AuthService"
 import Toast from 'react-native-toast-message';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

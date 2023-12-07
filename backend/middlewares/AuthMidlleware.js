@@ -5,7 +5,7 @@ const AppError = require("../erros/AppError");
 function authMiddleware(req, res, next)
 {
     const route = req.path
-    const nonSegurityRoutes = ['/login', '/register','/house/register']
+    const nonSegurityRoutes = ['/login', '/register','/house/register','/create/immobile']
 
     if(nonSegurityRoutes.includes(route))
     {

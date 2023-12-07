@@ -2,12 +2,23 @@
 import { ImageProps } from "react-native";
 
 export interface House{
+    _id: string
     name: string
-    imageApresentation: ImageProps['source']
+    imageProfile: string
     images: string[]
     description: string
     price: number
+    agent: string
+    city: string
 }
+
+export interface Interest {
+    _id: string
+    name: string;
+    email: string;
+    phone: string;
+    immobile: House
+  }
 
  export type RootStackParamList = {
     House: House;

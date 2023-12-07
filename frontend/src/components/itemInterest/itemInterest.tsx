@@ -1,30 +1,17 @@
 import Styles from "./styleItemInterest";
 import { View, Image, TouchableOpacity } from "react-native";
 import { Text, Button } from "react-native";
-import { Interest } from "../../Data/Interest";
+import { Interest } from "../../types/RootStackParamList"
 import Icon from "react-native-vector-icons/AntDesign";
 
-export default function App({ name, data, hora, local }: Interest) {
+export default function App({_id, name , email, phone, immobile }: Interest) {
   return (
     <View style={Styles.container}>
       <View style={Styles.containerHouse}>
-        <Text style={Styles.textHouse}>{local}</Text>
+        <Text style={Styles.textHouse}>{immobile.name}</Text>
       </View>
       <View>
-        <Text style={Styles.textName}>Broker: {name}</Text>
-        <View style={Styles.icon}>
-          <Icon name="calendar" size={20} color="#000" />
-          <Text style={Styles.textIcon}>{data}</Text>
-        </View>
-        <View style={Styles.icon}>
-          <Icon name="clockcircleo" size={20} color="#000" />
-          <Text style={Styles.textIcon}>{hora}</Text>
-        </View>
-        <View>
-          <TouchableOpacity style={Styles.button}>
-            <Text style={Styles.buttonText}>CANCEL</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={Styles.textName}>Broker: {immobile.agent}</Text>
       </View>
     </View>
   );

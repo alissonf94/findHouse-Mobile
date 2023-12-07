@@ -35,8 +35,76 @@ async function findByIdController(req, res, next){
         next(error)
     }
 }
+
+async function addInterestController(req, res, next){
+    try{
+        const {idImmobile, name, email, phone} = req.body
+
+        const idUser = req.userId
+
+        const result = await UserService.addInterestService(idImmobile, name, email, phone, idUser)
+
+        res.status(201).json(result)
+    }
+    catch(error){
+        next(error)
+    }
+}
+
+async function findByUserInterestController (req, res, next){
+    try {
+        const idUser = req.userId
+        const result = await UserService.findInterestUserService(idUser)
+        res.status(200).json(result)
+    } 
+    catch (error) {
+        next(error)
+    }
+}
+
+async function addFavoritesController(req, res, next){
+    try{
+        const idUser = req.userId
+        const {idImmobile} = req.body
+        const result = await UserService.addFavoritesService(idImmobile, idUser)
+
+        res.status(201).json(result)
+    }
+    catch(error){
+        next(error)
+    }
+}
+async function findByUserFavoritesController(req, res, next){
+    try{
+        const idUser = req.userId
+        const result = await UserService.findFavoritesUserService(idUser)
+
+        res.status(201).json(result)
+    }
+    catch(error){
+        next(error)
+    }
+}
+
+async function deleteImmobileFavoriteService(req, res,next) {
+    try {
+        const idUser = req.userId
+        const {idImmobile} = req.body
+        const result = await UserService.deleteImmobileFavoriteService(idImmobile, idUser)
+
+        res.status(201).json(result)
+    } 
+    catch (error) {
+        next(error)
+    }
+}
 module.exports = {
     createUserController,
     updateUserController,
-    findByIdController
+    findByIdController,
+    addInterestController,
+    addFavoritesController,
+    findByUserInterestController,
+    findByUserFavoritesController,
+    deleteImmobileFavoriteService
 }

@@ -1,6 +1,6 @@
-const ip = "192.168.0.109"
+const ip = "192.168.0.110"
 
-function loginService (data: any){
+export function loginService (data: any){
     return fetch(`http://${ip}:3333/login`,{
        method: "POST",
        headers:{
@@ -10,6 +10,4 @@ function loginService (data: any){
     })
 }
 
-module.exports = {
-    loginService
-}
+

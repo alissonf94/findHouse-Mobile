@@ -27,7 +27,15 @@ const UserSchema = new Schema(
     imageProfile: {
       type: String,
       maxlength: 10000
-    }
+    },
+    myInterest: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'InterestModel'
+    }],
+    myFavorites: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ImmobileModel"
+    }]
   }
 )
 

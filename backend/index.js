@@ -20,12 +20,14 @@ const authMiddleware = require("../backend/middlewares/AuthMidlleware")
 
 const UserRouter = require("./routers/UserRouter")
 const AuthRouter = require("./routers/AuthRouter")
+const immobileRouter = require("./routers/ImmbileRouter")
 
 app.use(express.json({ limit: '10mb' }))
 app.use(cors())
 app.use(authMiddleware)
 app.use(UserRouter)
 app.use(AuthRouter)
+app.use(immobileRouter)
 
 const erroHandling = async (err, req, res, next)=>
 {
@@ -52,7 +54,8 @@ app.listen(port, ()=>
     }
 )
 
-const corsOptions = {
+const corsOptions = 
+{
   origin: 'exp://192.168.0.109:8081',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204, 

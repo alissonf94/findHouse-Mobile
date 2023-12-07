@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const ip = "192.168.0.109"
+const ip = "192.168.0.110"
 
  export function createUser (data: any){
     return fetch(`http://${ip}:3333/register`, {
@@ -38,3 +38,63 @@ const ip = "192.168.0.109"
     }) 
 }
 
+export async function addImmbileFavorites(data: any){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/favorites`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+        body: JSON.stringify(data)
+    })
+}
+export async function addImmbileInterest(data: any){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/interest`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+        body: JSON.stringify(data)
+    })
+}
+export async function deletImmbileFavorites(data: any){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/favorites`,{
+        method: "DELETE",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+export async function getFavorites(){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/favorites`,{
+        method: "GET",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+    })
+}
+
+export async function getInterest(){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/interest`,{
+        method: "GET",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+    })
+}

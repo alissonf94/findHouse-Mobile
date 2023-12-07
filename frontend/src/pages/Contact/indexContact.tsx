@@ -4,13 +4,20 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
+  ToastAndroid
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Styles from "./styleContact";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { useRoute } from "@react-navigation/native";
+import * as userService from "../../services/userService/UserService"
 
 export default function Contact() {
+  const route: any = useRoute();
+  const house = route.params.house;
+  
+  
   const navigation = useNavigation();
   const [textInputName, setTextInputName] = useState("");
   const [textInputEmail, setTextInputEmail] = useState("");
@@ -26,11 +33,30 @@ export default function Contact() {
     } else if (!textInputEmail.trim()) {
       alert("Type your email");
       return;
-    } else {
-      navigation.navigate("Houses" as never);
-    }
+    } 
   };
 
+  const handleSubmit = async ()=>{
+    checkTextInput()
+    const data =  {
+      idImmobile: house._id, 
+      name: textInputName, 
+      email: textInputEmail, 
+      phone: textInputPhone
+    }
+
+    const response = await userService.addImmbileInterest(data)
+    const result = await response.json()
+    
+    if(response.status === 201){
+      ToastAndroid.show("Immbile add favorites", ToastAndroid.SHORT);
+      navigation.navigate("Houses" as never);
+    
+    }
+    else{
+      ToastAndroid.show(result.message, ToastAndroid.SHORT);
+    }
+  }
   return (
     <View style={Styles.container}>
       <Icon
@@ -66,7 +92,7 @@ export default function Contact() {
           onChangeText={(value) => setTextInputEmail(value)}
         />
       </ScrollView>
-      <TouchableOpacity style={Styles.button} onPress={checkTextInput}>
+      <TouchableOpacity style={Styles.button} onPress={handleSubmit}>
         <Text style={Styles.buttonText}>Entry Contact</Text>
       </TouchableOpacity>
     </View>

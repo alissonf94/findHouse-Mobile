@@ -1,16 +1,33 @@
 import Icon from "react-native-vector-icons/Ionicons";
-import { Interest, Intereste } from "../../Data/Interest";
 import ItemHouse from "../../components/itemInterest/itemInterest";
 import Menu from "../../components/menu/menu";
 import Styles from "./styleInterest";
 import { View, Text, FlatList, ListRenderItemInfo } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Interest } from "../../types/RootStackParamList"
+import { useEffect, useState } from "react";
+import * as UserService from "../../services/userService/UserService"
 
 export default function App() {
-  function renderItem({ item }: ListRenderItemInfo<Interest>) {
+  const navigation = useNavigation();
+  
+  const [interest, setInterest] = useState([])
+
+  const getInterest = async ()=>{
+    const response = await UserService.getInterest();
+    const interests = await response.json()
+    setInterest(interests)
+  }
+
+  useEffect(()=>{
+    getInterest()
+  })
+
+  function renderItem({ item }:ListRenderItemInfo<Interest>) {
+
     return <ItemHouse {...item} />;
   }
-  const navigation = useNavigation();
+ 
   return (
     <View style={Styles.container}>
       <Icon
@@ -26,8 +43,8 @@ export default function App() {
       <FlatList
         style={Styles.flat}
         renderItem={renderItem}
-        data={Intereste}
-        keyExtractor={(item) => item.name}
+        data={interest}
+        keyExtractor={(item) => item._id}
       />
       <Menu />
     </View>

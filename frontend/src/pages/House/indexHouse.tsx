@@ -9,10 +9,12 @@ import { useState } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default function App() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const route: any = useRoute();
   const house = route.params.House;
+ 
   const [activeSlide, setActiveSlide] = useState(0);
+  
   const renderItem = ({ item, index }: any) => (
     <View style={Styles.sectionImage}>
       <Image key={index} source={{ uri: item }} style={Styles.image} />
@@ -59,7 +61,7 @@ export default function App() {
         name="arrow-back-outline"
         size={30}
         color="#fff"
-        onPress={() => navigation.navigate("Houses" as never)}
+        onPress={() => navigation.navigate("Houses")}
       />
 
       <View style={Styles.dados}>
@@ -71,7 +73,7 @@ export default function App() {
         <View style={Styles.sectionButton}>
           <TouchableOpacity
             style={Styles.button}
-            onPress={() => navigation.navigate("Contact" as never)}
+            onPress={() => navigation.navigate("Contact", {'house': house})}
           >
             <Text style={Styles.textButton}>More informations</Text>
           </TouchableOpacity>

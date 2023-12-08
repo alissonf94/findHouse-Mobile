@@ -38,18 +38,19 @@ export default function Contact() {
 
   const handleSubmit = async ()=>{
     checkTextInput()
-    const data =  {
-      idImmobile: house._id, 
+    const data =  { 
       name: textInputName, 
       email: textInputEmail, 
       phone: textInputPhone
     }
 
-    const response = await userService.addImmbileInterest(data)
+    const idImmobile = house._id
+
+    const response = await userService.addImmbileInterest(idImmobile ,data)
     const result = await response.json()
     
     if(response.status === 201){
-      ToastAndroid.show("Immbile add favorites", ToastAndroid.SHORT);
+      ToastAndroid.show("Immbile add interest", ToastAndroid.SHORT);
       navigation.navigate("Houses" as never);
     
     }

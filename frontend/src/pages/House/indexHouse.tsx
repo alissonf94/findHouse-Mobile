@@ -1,20 +1,22 @@
-import { Image, Text, TouchableOpacity, View, Dimensions } from "react-native";
+import { Image, Text, TouchableOpacity, View, Dimensions, ToastAndroid } from "react-native";
 import Styles from "./styleHouse";
 import IconFavorite from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 const screenWidth = Dimensions.get("window").width;
 import Carousel, { Pagination } from "react-native-snap-carousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
+import * as UserService from "../../services/userService/UserService"
+import { House } from "../../types/RootStackParamList";
 
 export default function App() {
   const navigation = useNavigation<any>();
   const route: any = useRoute();
   const house = route.params.House;
- 
+
   const [activeSlide, setActiveSlide] = useState(0);
-  
+
   const renderItem = ({ item, index }: any) => (
     <View style={Styles.sectionImage}>
       <Image key={index} source={{ uri: item }} style={Styles.image} />
@@ -22,12 +24,51 @@ export default function App() {
   );
 
   const [isFavority, setFavority] = useState(false);
-  const toggleFavority = () => {
-    if (isFavority) {
-      /* product.favorite = false */
+
+  const toggleFavority = async () => {
+    const response = await UserService.getFavorites()
+
+    const favorites: House[] = await response.json()
+
+    const array = favorites.filter(immobile => immobile._id === house._id)
+
+    if (array.length === 0) {
+      setFavority(false);
     }
-    setFavority(!isFavority);
+    else {
+      setFavority(true);
+    }
   };
+
+  const handleToggleFavorite = async (id: any) => {
+    try {
+      if (isFavority === true) {
+        const response = await UserService.deletImmbileFavorites(id)
+        setFavority(false)
+
+        ToastAndroid.show("Immbolie is remove favorite", ToastAndroid.SHORT)
+
+      }
+
+      else {
+        console.log(id);
+
+        const response = await UserService.addImmbileFavorites(id);
+        ToastAndroid.show("Immobile is favorite", ToastAndroid.SHORT)
+        setFavority(true)
+
+      }
+
+    }
+    catch (error) {
+    }
+
+  };
+
+  useEffect(() => {
+    toggleFavority()
+  }, [house])
+
   return (
     <View style={Styles.container}>
       <Carousel
@@ -49,7 +90,7 @@ export default function App() {
         />
       </View>
       <IconFavorite
-        onPress={toggleFavority}
+        onPress={() => handleToggleFavorite(house._id)}
         name={isFavority ? "heart-sharp" : "heart-outline"}
         color={"red"}
         size={35}
@@ -73,7 +114,7 @@ export default function App() {
         <View style={Styles.sectionButton}>
           <TouchableOpacity
             style={Styles.button}
-            onPress={() => navigation.navigate("Contact", {'house': house})}
+            onPress={() => navigation.navigate("Contact", { 'house': house })}
           >
             <Text style={Styles.textButton}>More informations</Text>
           </TouchableOpacity>

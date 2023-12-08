@@ -38,10 +38,21 @@ const ip = "192.168.0.110"
     }) 
 }
 
-export async function addImmbileFavorites(data: any){
+export async function addImmbileFavorites(idImmobile: any){
     const token = await AsyncStorage.getItem('token')
 
-    return fetch(`http://${ip}:3333/user/favorites`,{
+    return fetch(`http://${ip}:3333/user/favorites/${idImmobile}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "Application/json",
+            "Authorization": `${token}`
+        },
+    })
+}
+export async function addImmbileInterest(idImmobile: any, data: any){
+    const token = await AsyncStorage.getItem('token')
+
+    return fetch(`http://${ip}:3333/user/interest/${idImmobile}`,{
         method: "PUT",
         headers: {
             "Content-Type": "Application/json",
@@ -50,28 +61,15 @@ export async function addImmbileFavorites(data: any){
         body: JSON.stringify(data)
     })
 }
-export async function addImmbileInterest(data: any){
+export async function deletImmbileFavorites(idImmobile: any){
     const token = await AsyncStorage.getItem('token')
 
-    return fetch(`http://${ip}:3333/user/interest`,{
-        method: "PUT",
-        headers: {
-            "Content-Type": "Application/json",
-            "Authorization": `${token}`
-        },
-        body: JSON.stringify(data)
-    })
-}
-export async function deletImmbileFavorites(data: any){
-    const token = await AsyncStorage.getItem('token')
-
-    return fetch(`http://${ip}:3333/user/favorites`,{
+    return fetch(`http://${ip}:3333/user/favorites/${idImmobile}`,{
         method: "DELETE",
         headers: {
             "Content-Type": "Application/json",
             "Authorization": `${token}`
         },
-        body: JSON.stringify(data)
     })
 }
 
@@ -98,3 +96,4 @@ export async function getInterest(){
         },
     })
 }
+

@@ -5,11 +5,32 @@ import Menu from "../../components/menu/menu";
 import Styles from "./styleFavorites";
 import { View, Text, FlatList, ListRenderItemInfo } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect, useState } from "react";
+import * as UserService from "../../services/userService/UserService"
+
+import { House } from "../../types/RootStackParamList";
 
 export default function App() {
-  function renderItem({ item }: ListRenderItemInfo<FavoriteHouse>) {
+  const [favorites, setFavorites]= useState([])
+  
+  const findFavorites = async ()=>{
+    const reponse = await UserService.getFavorites()
+
+    const result = await reponse.json()
+
+    setFavorites(result)
+  }
+
+  useEffect(()=>{
+    findFavorites()
+  },[favorites])
+
+  function renderItem({ item }: ListRenderItemInfo<House>) {
     return <ItemHouse {...item} />;
   }
+
+ 
+
   const navigation = useNavigation();
   return (
     <View style={Styles.container}>
@@ -26,7 +47,7 @@ export default function App() {
       <FlatList
         style={Styles.flat}
         renderItem={renderItem}
-        data={FavoriteHouses}
+        data={favorites}
         keyExtractor={(item) => item.name}
       />
       <Menu />

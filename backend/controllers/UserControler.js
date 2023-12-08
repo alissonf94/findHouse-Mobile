@@ -38,8 +38,8 @@ async function findByIdController(req, res, next){
 
 async function addInterestController(req, res, next){
     try{
-        const {idImmobile, name, email, phone} = req.body
-
+        const {name, email, phone} = req.body
+        const idImmobile = req.params.idImmobile
         const idUser = req.userId
 
         const result = await UserService.addInterestService(idImmobile, name, email, phone, idUser)
@@ -65,7 +65,7 @@ async function findByUserInterestController (req, res, next){
 async function addFavoritesController(req, res, next){
     try{
         const idUser = req.userId
-        const {idImmobile} = req.body
+        const idImmobile = req.params.idImmobile
         const result = await UserService.addFavoritesService(idImmobile, idUser)
 
         res.status(201).json(result)
@@ -89,7 +89,7 @@ async function findByUserFavoritesController(req, res, next){
 async function deleteImmobileFavoriteService(req, res,next) {
     try {
         const idUser = req.userId
-        const {idImmobile} = req.body
+        const idImmobile = req.params.idImmobile
         const result = await UserService.deleteImmobileFavoriteService(idImmobile, idUser)
 
         res.status(201).json(result)

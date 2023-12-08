@@ -12,13 +12,21 @@ import { House } from "../../types/RootStackParamList";
 export default function App() {
 
   const navigation = useNavigation();
-  const [houses, setHouses] = useState([]) 
-
+  const [houses, setHouses] = useState<House[]>([]) 
+  const [search, setSearch] = useState("")
+ 
   const getHouses = async ()=>{
     const response = await ImmobileService.findAllImmobiles()
-    const housesResult = await response.json()
+    const housesResult:House[] = await response.json()
+   
+    if(search.trim() !==""){
+      let dataFilter=  housesResult.filter(house => house.name.toLowerCase().split(" ").includes(search.trim().toLowerCase()))
 
-    setHouses(housesResult)
+      setHouses(dataFilter)
+    }
+    else{
+      setHouses(housesResult)
+    }
   }
 
   const openChat = () =>{
@@ -31,12 +39,12 @@ export default function App() {
 
   React.useEffect(()=> {
     getHouses()
-  })
+  },[search])
   
   return (
     <View style={Styles.container}>
       <View style={{ display: "flex", flexDirection: "row", width:"100%" }}>
-        <TextInput style={Styles.search} />
+        <TextInput style={Styles.search} value= {search} onChangeText={(value)=> setSearch(value)} />
         <Icon style={Styles.icon} name="search" size={35} color="#675D50" />
       </View>
 

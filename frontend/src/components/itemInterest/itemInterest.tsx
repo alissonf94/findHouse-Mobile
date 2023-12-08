@@ -12,9 +12,6 @@ export default function App({_id, name , email, phone, immobile }: Interest) {
     <View style={Styles.containerBroker}>
       <Text numberOfLines={3} style={Styles.textName}>Broker: {immobile.agent}</Text>
     </View>
-    <TouchableOpacity style={Styles.deleteButton}>
-        <Icon name="delete" size={18} style={Styles.iconDelete}/>
-    </TouchableOpacity>
   </View>
   );
 }

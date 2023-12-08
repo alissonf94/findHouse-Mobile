@@ -50,17 +50,6 @@ const Styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 14,
   },
-  deleteButton: {
-    position: 'absolute',
-    color: "#fff",
-    bottom: 5,
-    right: 5,
-    borderRadius: 50,
-    padding: 10,
-  },
-  iconDelete: {
-    color: "red",
-  },
 });
 
 export default Styles;

@@ -2,16 +2,30 @@
 
 require("express-async-errors")
 const mongoose = require('mongoose')
-
+const http = require("http");
 mongoose.connect('mongodb://127.0.0.1:27017/findHouse')
 require("dotenv").config()
 
 const jwt = require('jsonwebtoken')
 
 const express = require('express')
+const app = express()
+const server = http.createServer(app);
+const socketIo = require("socket.io");
+const io = socketIo(server, {});
+
+io.on("connection", (socket) => {
+  socket.on("chat", (msg) => {
+    io.emit("chat", msg);
+  });
+  socket.on("disconnect", () => {
+    console.log("Dispositivo desconectado");
+  });
+});
+
 const cors = require('cors')
 
-const app = express()
+
 const port = process.env.port || 3333
 
 const AppError = require("../backend/erros/AppError")
@@ -22,7 +36,7 @@ const UserRouter = require("./routers/UserRouter")
 const AuthRouter = require("./routers/AuthRouter")
 const immobileRouter = require("./routers/ImmbileRouter")
 
-app.use(express.json({ limit: '10mb' }))
+app.use(express.json())
 app.use(cors())
 app.use(authMiddleware)
 app.use(UserRouter)
@@ -48,7 +62,7 @@ const erroHandling = async (err, req, res, next)=>
 }
 app.use(erroHandling)
 
-app.listen(port, ()=>
+server.listen(port, ()=>
     {
         console.log(`O servidor esta executando na porta ${port}`)
     }
@@ -56,7 +70,7 @@ app.listen(port, ()=>
 
 const corsOptions = 
 {
-  origin: 'exp://192.168.0.109:8081',
+  origin: 'exp://10.5.1.6:8081',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204, 
   Headers: 'Acess-token', 

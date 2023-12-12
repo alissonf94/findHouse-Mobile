@@ -43,8 +43,10 @@ export default function App() {
         ToastAndroid.show(result.message, ToastAndroid.SHORT);
       }
       else{
-        await AsyncStorage.setItem("token", `Bearer ${result}`)
+        await AsyncStorage.setItem("token", `Bearer ${result.token}`)
+        await AsyncStorage.setItem("name", `${result.name}`)
         navigation.navigate("Houses" as never);
+        
       }
     } 
     catch (error) {

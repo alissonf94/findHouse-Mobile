@@ -12,7 +12,7 @@ const storageService = {
   getItem: async (key: string) => {
     try {
       const item: any = await AsyncStorage.getItem(key);
-      return JSON.parse(item);
+      return item;
     } catch (e) {
       return null;
     }

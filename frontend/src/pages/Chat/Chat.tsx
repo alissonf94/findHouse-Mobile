@@ -1,4 +1,4 @@
-/*import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -10,41 +10,47 @@ import {
 import styles from "./ChatStyle";
 import Balloon from "./Baloon";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import storageService from "../../services/ChatService/storageService";
-import { webSocket, socket } from "../../services/webSocket";
+import storageService from "../../services/chatService/StorageService";
+import io  from "socket.io-client";
+
+
+const socket = io("http://10.5.1.6:3333"); //isso eh o ip da tua maquina 
 
 const Chat = ({ route }: any) => {
   const [content, setContent] = useState("");
-  const [chat, setChat] = useState({ messages: [] });
-  const [userData, setUserData] = useState({ name: "" });
+  const options: any = { messages: [] };
+  const [chat, setChat] = useState(options);
+  const [userData, setUserData] = useState("");
   useEffect(() => {
-    storageService.getItem("userData").then((userData) => {
-      setUserData(userData);
-      socket.on("chat", (response: any) => {
-        setText("");
-        chat.messages.push(response);
-        setChat({ messages: chat.messages });
+    storageService.getItem("name").then((userData:any) => {
+      socket.on("chat", (messagem: any) => {
+        chat.messages.push(messagem);
+        setChat({ messages: chat.messages});
+        setContent("");
       });
+      setUserData(userData);
     });
   }, []);
   const sendMessage = () => {
-    webSocket.sendMessage({
+    socket.emit("chat", {
       content: content,
-      sendBy: userData.name,
+      sentBy: userData,
       date: new Date(),
     });
+
   };
 
+  console.log(chat.messages.length);
   return (
     <Fragment>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {chat.messages.length > 0 ? (
           chat.messages.map((m: any, index: number) => (
-            <Balloon key={index} message={m} currentUser={userData.name} />
+            <Balloon key={index} message={m} currentUser={userData} />
           ))
         ) : (
           <Text style={{ alignSelf: "center", color: "#848484" }}>
-            Sem menssagens no momento
+            Sem mensagens no momento
           </Text>
         )}
       </ScrollView>
@@ -52,11 +58,11 @@ const Chat = ({ route }: any) => {
         <View style={styles.messageTextInputContainer}>
           <TextInput
             style={styles.messageTextInput}
-            placeholder="Digite sua menssagem"
+            placeholder="Digite sua mensagem"
             placeholderTextColor={Colors.light}
             value={content}
             multiline
-            onChange={(message: any) => setContent(message)}
+            onChangeText={(message) => setContent(message)}
           />
           <TouchableOpacity
             style={styles.sendButton}
@@ -71,4 +77,4 @@ const Chat = ({ route }: any) => {
   );
 };
 
-export default Chat;*/
+export default Chat;

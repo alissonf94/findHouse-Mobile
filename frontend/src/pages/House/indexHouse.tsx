@@ -51,8 +51,6 @@ export default function App() {
       }
 
       else {
-        console.log(id);
-
         const response = await UserService.addImmbileFavorites(id);
         ToastAndroid.show("Immobile is favorite", ToastAndroid.SHORT)
         setFavority(true)

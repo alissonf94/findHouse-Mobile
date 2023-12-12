@@ -29,8 +29,8 @@ const Styles = StyleSheet.create({
     },
     fab:{
         position: "absolute",
-        right:30,
-        bottom:30 
+        right:"3%",
+        bottom:"11%"
     }
 })
 

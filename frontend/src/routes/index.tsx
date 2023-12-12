@@ -11,7 +11,7 @@ import Contact from "../pages/Contact/indexContact";
 import Interest from "../pages/Interest/indexInterest";
 import { RootStackParamList } from "../types/RootStackParamList";
 
-/* import Chat from "../pages/Chat/Chat"; */
+ import Chat from "../pages/Chat/Chat";   
 // stack e uma dependencia de navegacao que e neces<sario instalar na sua maquina
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -60,16 +60,15 @@ export default function Routes() {
         options={{ headerShown: false }}
       />
 
-      <Stack.Screen name="Interest" 
-      component={Interest}
-      options={{ headerShown: false}}      
+      <Stack.Screen name="Interest"
+        component={Interest}
+        options={{ headerShown: false }}
       />
 
-      {/* <Stack.Screen name="Chat"
-      component={Chat}
-      options={{ headerShown: false}}      
-      /> */}
-
+      <Stack.Screen name="Chat"
+        component={Chat}
+        options={{ headerShown: true }}
+      />
     </Stack.Navigator>
   );
 }

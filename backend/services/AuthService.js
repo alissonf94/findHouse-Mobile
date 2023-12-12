@@ -18,8 +18,11 @@ async function loginService(email, password){
 
     const secret = process.env.SECRET
     const token = jwt.sign({userLogin}, secret, {expiresIn: 86400})
-
-    return token
+    const data = {
+        name: user.name,
+        token: token
+    }
+    return data
 }
 
 function valididyPassword (passordLogin, passwordUser){

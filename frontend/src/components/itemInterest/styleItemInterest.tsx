@@ -2,26 +2,32 @@ import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    width: "94%",
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '96%',
+    height: 100, // Set a predefined height here
     borderRadius: 20,
-    marginLeft: "3%",
-    padding: "3%",
-    marginBottom: "3%",
+    marginLeft: '2%',
+    padding: '3%',
+    marginBottom: '3%',
   },
   containerHouse: {
-    width: "37%",
+    flex: 1,
+    maxWidth: '40%',
+  },
+  containerBroker: {
+    flex: 1,
+    maxWidth: '50%',
   },
   textHouse: {
-    fontSize: 22,
-    fontFamily: "Montserrat_300Light",
+    fontSize: 18,
+    fontFamily: 'Montserrat_300Light',
   },
   textName: {
-    fontSize: 18,
-    fontFamily: "Montserrat_400Regular",
+    fontSize: 16,
+    fontFamily: 'Montserrat_400Regular',
   },
   icon: {
     flexDirection: "row",

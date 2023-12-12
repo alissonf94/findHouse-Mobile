@@ -14,7 +14,7 @@ import storageService from "../../services/chatService/StorageService";
 import io  from "socket.io-client";
 
 
-const socket = io("http://10.5.1.6:3333"); //isso eh o ip da tua maquina 
+const socket = io("http://192.168.0.110:3333"); //isso eh o ip da tua maquina 
 
 const Chat = ({ route }: any) => {
   const [content, setContent] = useState("");
@@ -40,7 +40,6 @@ const Chat = ({ route }: any) => {
 
   };
 
-  console.log(chat.messages.length);
   return (
     <Fragment>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>

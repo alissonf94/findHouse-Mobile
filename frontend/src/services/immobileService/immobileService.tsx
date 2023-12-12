@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const ip = "10.5.1.6"
+const ip = "192.168.0.110"
 
 export async function findAllImmobiles(){
     const token = await AsyncStorage.getItem('token')

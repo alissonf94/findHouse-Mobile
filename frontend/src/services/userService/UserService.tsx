@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const ip = "192.168.0.110"
+const ip = "192.168.1.9"
 
  export function createUser (data: any){
     return fetch(`http://${ip}:3333/register`, {

@@ -42,6 +42,13 @@ const Styles = StyleSheet.create({
     marginBottom: "10%",
     borderRadius: 30,
     padding: 10,
+  },button2: {
+    backgroundColor: "#6D7D6D",
+    width: "60%",
+    justifyContent: "center",
+    height: 40,
+    alignItems: "center",
+    borderRadius: 20,
   },
   button: {
     backgroundColor: "#ABC4AA",
@@ -59,13 +66,11 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
   },
   profileImage: {
-    width: 120,
-    height: 120,
+    width: 130,
+    height: 130,
     borderRadius: 75,
-    marginBottom: 20,
-    marginLeft: 25,
+    margin:"3%"
   },
-
   logoutContent: {
     flexDirection: "row",
     alignItems: "center",

@@ -6,7 +6,7 @@ const interestSchema = new Schema(
     {
         name: { type: String, required: true },
         email: { type: String, required: true },
-        phone: { type: Number, required: true },
+        phone: { type: String, required: true },
         immobile: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "ImmobileModel"

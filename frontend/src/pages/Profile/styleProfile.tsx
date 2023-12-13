@@ -42,9 +42,10 @@ const Styles = StyleSheet.create({
     marginBottom: "10%",
     borderRadius: 30,
     padding: 10,
-  },button2: {
+  },
+  button2: {
     backgroundColor: "#6D7D6D",
-    width: "60%",
+    width: "65%",
     justifyContent: "center",
     height: 40,
     alignItems: "center",
@@ -54,7 +55,7 @@ const Styles = StyleSheet.create({
     backgroundColor: "#ABC4AA",
     width: "100%",
     justifyContent: "center",
-    height: 60,
+    height: 55,
     alignItems: "center",
     marginTop: "5%",
     marginBottom: "5%",
@@ -64,6 +65,11 @@ const Styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  buttonText2: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "normal",
   },
   profileImage: {
     width: 130,

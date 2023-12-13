@@ -1,4 +1,4 @@
-const ip = "10.5.3.11"
+const ip = "192.168.28.152"
 
 export function loginService (data: any){
     return fetch(`http://${ip}:3333/login`,{

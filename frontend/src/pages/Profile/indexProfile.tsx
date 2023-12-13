@@ -117,7 +117,7 @@ export default function EditProfile() {
       <View style={{ display: "flex", alignItems: "center" }}>
         <Image source={{ uri: uriImageProfile }} style={Styles.profileImage} />
         <TouchableOpacity  onPress={pickImage} style={Styles.button2}>
-          <Text style={Styles.buttonText}>Trocar imagem de perfil</Text>
+          <Text style={Styles.buttonText2}>Trocar imagem de perfil</Text>
         </TouchableOpacity>
       </View>
       <Text style={Styles.containerHeader}>

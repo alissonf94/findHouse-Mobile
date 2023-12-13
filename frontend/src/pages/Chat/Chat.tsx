@@ -14,7 +14,7 @@ import storageService from "../../services/chatService/StorageService";
 import io  from "socket.io-client";
 
 
-const socket = io("http://192.168.28.152:3333"); 
+const socket = io("http://10.30.1.205:3333"); 
 
 const Chat = ({ route }: any) => {
   const [content, setContent] = useState("");

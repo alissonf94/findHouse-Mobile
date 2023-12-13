@@ -70,7 +70,7 @@ server.listen(port, ()=>
 
 const corsOptions = 
 {
-  origin: 'exp://192.168.28.152:8081',
+  origin: 'exp://10.30.1.205:8081',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204, 
   Headers: 'Acess-token', 

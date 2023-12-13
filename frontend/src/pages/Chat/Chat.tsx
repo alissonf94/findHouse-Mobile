@@ -14,7 +14,7 @@ import storageService from "../../services/chatService/StorageService";
 import io  from "socket.io-client";
 
 
-const socket = io("http://192.168.1.9:3333"); //isso eh o ip da tua maquina 
+const socket = io("http://10.5.3.11:3333"); //isso eh o ip da tua maquina 
 
 const Chat = ({ route }: any) => {
   const [content, setContent] = useState("");

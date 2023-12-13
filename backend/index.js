@@ -36,7 +36,7 @@ const UserRouter = require("./routers/UserRouter")
 const AuthRouter = require("./routers/AuthRouter")
 const immobileRouter = require("./routers/ImmbileRouter")
 
-app.use(express.json())
+app.use(express.json({"limit": "10mb"}))
 app.use(cors())
 app.use(authMiddleware)
 app.use(UserRouter)
@@ -70,7 +70,7 @@ server.listen(port, ()=>
 
 const corsOptions = 
 {
-  origin: 'exp://10.5.1.6:8081',
+  origin: 'exp://10.5.3.11:8081',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 204, 
   Headers: 'Acess-token', 

@@ -23,18 +23,32 @@ async function createUserService({name, cpf, email, password}){
 
 async function updateUserService(id, {name, email, password, imageProfile}){
     
-    if(!name || !email || !imageProfile){
-        throw new AppError("all fields for registration", 400)
-    }
     let user;
-    if(password === "")
+    if(password === "" && imageProfile=== "")
     {
         user = await UserModel.updateOne(
             {_id: id},
             {
                 name: name,
                 email: email,
+            })
+    }
+    else if(password===""){
+        user = await UserModel.updateOne(
+            {_id: id},
+            {
+                name: name,
+                email: email,
                 imageProfile: imageProfile,
+            })
+    }
+    else if(imageProfile===""){
+        user = await UserModel.updateOne(
+            {_id: id},
+            {
+                name: name,
+                email: email,
+                password: password
             })
     }
     else{
